@@ -12,6 +12,8 @@ A scatter plot can hide dense observations. Hexbin and density views reveal wher
 
 Streamlit interaction testing exposed a filter-reset defect. Clearing session state did not restore widget selections; explicit widget keys and a reset callback corrected it. The regression test now checks the restored full-population count.
 
+A fresh installation exposed PyArrow 26 requiring NumPy 2 at runtime despite successful dependency resolution. Pinning PyArrow 25.0.1 restored compatibility; the dashboard regression test passed in the fresh environment.
+
 A separate lean dependency file removes the need to install optional legacy profiling helpers for the dashboard. UTF-8 without a BOM is used for TOML configuration because the installed parser rejected a BOM.
 
 ## Asim's personal reflection ? complete after running the project

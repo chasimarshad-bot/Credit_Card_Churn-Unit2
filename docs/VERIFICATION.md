@@ -9,6 +9,10 @@
 - `python -m compileall -q src app.py run_analysis.py`: passed.
 - Dashboard AppTest: initial rendering, empty segment, reset to 10,127 rows, demographic-missing exclusion and 20-customer Platinum segment passed without app exceptions.
 
-Testing found and resolved a TOML BOM parsing issue and a filter-reset defect. Tests are automated application checks, not a screenshot review or a formal accessibility audit.
+A separate fresh Python 3.12.8 virtual environment installed the project requirements. The first dashboard run exposed PyArrow 26 requiring NumPy 2 at runtime; pinning PyArrow 25.0.1 resolved it. After that correction, pip check, all seven tests and compilation passed in the fresh environment.
 
-Still to verify: clean cloud installation, hosted URL and browser layout/accessibility. Notebook runtime emitted a Windows event-loop fallback warning; execution completed successfully. No claim of a clean independent environment install is made.
+The local Streamlit HTTP health endpoint also returned `ok`. The generated hexbin figure was visually inspected for labels, scale and readability.
+
+Testing found and resolved a TOML BOM parsing issue, a filter-reset defect and the PyArrow/NumPy conflict. Tests are automated application checks, not a screenshot review or a formal accessibility audit.
+
+Still to verify: clean Linux/cloud installation, hosted URL and browser layout/accessibility. Notebook runtime emitted a Windows event-loop fallback warning; execution completed successfully. No claim of a clean independent environment install is made.

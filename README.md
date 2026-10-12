@@ -126,7 +126,7 @@ python -m unittest discover -s tests -v
 python -m compileall -q src app.py run_analysis.py
 ```
 
-Data tests cover rejection of corrupt input, row preservation, leakage exclusions, disjoint/stratified splits, Wilson intervals and multiple-test correction. Dashboard tests cover initial rendering, empty selections, reset, missing-data exclusion and narrow segments. Both new notebooks execute end to end. The [verification record](docs/VERIFICATION.md) records completed checks and limits.
+Data tests cover rejection of corrupt input, row preservation, leakage exclusions, disjoint/stratified splits, Wilson intervals and multiple-test correction. Dashboard tests cover initial rendering, empty selections, reset, missing-data exclusion and narrow segments. Both new notebooks execute end to end. A fresh Windows Python 3.12 environment also passed the seven tests and dependency checks after a PyArrow compatibility pin. The [verification record](docs/VERIFICATION.md) records completed checks and limits.
 
 ## Main libraries and structure
 
