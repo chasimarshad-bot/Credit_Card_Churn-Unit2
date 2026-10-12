@@ -99,6 +99,8 @@ The Streamlit app has four tabs:
 
 Card category, product count and transaction-range filters apply only to descriptive views. Missing-demographic inclusion is explicit; empty and small samples have clear messages. A Reset filters button restores the population. Chart labels identify groups in addition to colour. Histograms compare distribution shapes; product bars compare rates; density plots reveal concentration without scatter overplotting. Bin counts are not churn probabilities.
 
+Expandable data tables provide transaction frequencies, contact rates, classification outcomes and feature reliance without relying on chart colour or hover. Feature names use plain-language labels.
+
 Formal accessibility auditing and visual browser review have not been completed; Streamlit interaction tests verify rendering and controls, not every assistive-technology behaviour.
 
 ## Conclusions and recommendations
@@ -118,6 +120,8 @@ Investigate activity-led retention with human review. Obtain dated features befo
 - No known application logic defect remains from the completed automated checks. Browser layout and hosted execution still need final verification.
 
 ## Deployment
+
+[Deploy this project to Render](https://render.com/deploy?repo=https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2) - sign in, review the supplied free-plan configuration and launch it. No application secrets are needed.
 
 The app is ready for a Python Streamlit host. Streamlit Community Cloud can use this repository, branch `main`, entry point `app.py` and Python 3.12. The root `requirements.txt` includes the lean Unit 2 runtime. Commit generated aggregate/model reports so the Model review tab works without training on the host.
 

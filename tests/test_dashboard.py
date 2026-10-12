@@ -7,6 +7,16 @@ class DashboardTests(unittest.TestCase):
         at = AppTest.from_file('app.py',default_timeout=45).run()
         self.assertFalse(at.exception)
         self.assertEqual(at.metric[0].value,'10,127')
+        tables = [table.value for table in at.dataframe]
+        frequency = next(table for table in tables if 'Share of status group (%)' in table.columns)
+        self.assertEqual(int(frequency.Customers.sum()),10127)
+        for share in frequency.groupby('Recorded status')['Share of status group (%)'].sum():
+            self.assertAlmostEqual(share,100.0)
+        outcomes = next(table for table in tables if 'Predicted retained' in table.columns)
+        self.assertEqual(int(outcomes.to_numpy().sum()),2026)
+        reliance = next(table for table in tables if 'Activity measure' in table.columns)
+        self.assertEqual(len(reliance),10)
+        self.assertFalse(reliance['Activity measure'].str.contains('_').any())
         at.multiselect[0].set_value([]).run()
         self.assertFalse(at.exception)
         self.assertTrue(any('No customers' in x.value for x in at.info))

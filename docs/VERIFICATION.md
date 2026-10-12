@@ -24,3 +24,5 @@ The submission audit cross-checks the raw digest and cleaned export, recorded sp
 The audit found damaged punctuation in the README (including negative effect-size signs) and broken figure links in the archived README after it moved into `docs/`. Both were corrected. Validation now rejects text-typed numerical columns with an explicit error rather than failing later during arithmetic; the corrupt-input regression test covers that case. All seven tests continue to pass.
 
 The audit accepts LF/CRLF checkout differences when comparing the original source digest; any other source-content change fails the check. This keeps the same content check usable with both Git checkouts and GitHub source ZIPs.
+
+Dashboard follow-up: transaction frequency, contact rates, classification outcomes and feature reliance now have expandable table alternatives. The dashboard test checks that frequency counts total 10,127, each status share totals 100%, classification outcomes total 2,026 and all ten feature labels are readable without column-name underscores. The model/data outputs are unchanged.

@@ -17,6 +17,9 @@ See the [official deployment guide](https://docs.streamlit.io/deploy/streamlit-c
 
 ## Render alternative
 
+[Launch the prepared Render deployment](https://render.com/deploy?repo=https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2). Sign in and review the service configuration. This link is a deployment shortcut, not a live dashboard URL. Automatic redeployment on repository pushes is disabled; deploy updates explicitly from the host.
+
+
 The root `render.yaml` defines a Python web service using the free compute plan, a pip build, Streamlit bound to the supplied PORT and the Streamlit health endpoint. It has no secrets or database. A service is not created by committing this file.
 
 Install/connect the Render integration to allow deployment from this conversation, or create a Blueprint from this repository in Render. Review the returned service configuration, build logs and live URL. Free-host availability and startup latency are subject to the host's current terms. Do not mark hosting complete based only on the configuration file.

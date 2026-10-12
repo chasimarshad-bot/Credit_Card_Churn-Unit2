@@ -38,7 +38,7 @@ with st.sidebar:
     transactions = st.slider('Annual transactions',int(df.Total_Trans_Ct.min()),int(df.Total_Trans_Ct.max()),
                              (int(df.Total_Trans_Ct.min()),int(df.Total_Trans_Ct.max())),key='transactions')
     include_missing = st.checkbox('Include customers with unrecorded demographics',value=True,key='include_missing')
-    st.caption('Clear a selection to inspect the empty-segment response. Use Reset filters to restore the full snapshot.')
+    st.caption('Use Reset filters to restore the full snapshot.')
     st.button('Reset filters',on_click=reset_filters)
 selected = df[df.Card_Category.isin(cards) & df.Total_Relationship_Count.between(*products)
               & df.Total_Trans_Ct.between(*transactions)].copy()
@@ -93,6 +93,11 @@ with activity:
                            title='Transaction frequency, normalised within each status')
         st.plotly_chart(fig,use_container_width=True)
         st.caption('Each status distribution totals 100%; this compares distribution shapes rather than class sizes.')
+        with st.expander('Transaction frequency data table'):
+            frequency = selected.groupby(['Attrition_Flag','Total_Trans_Ct']).size().reset_index(name='Customers')
+            frequency['Share of status group (%)'] = frequency.Customers / frequency.groupby('Attrition_Flag').Customers.transform('sum') * 100
+            st.dataframe(frequency.rename(columns={'Attrition_Flag':'Recorded status','Total_Trans_Ct':'Annual transactions'}),hide_index=True,use_container_width=True)
+
         chart_data = selected.assign(Status=selected.Attrition_Flag)
         fig = px.density_heatmap(chart_data,x='Total_Trans_Ct',y='Total_Revolving_Bal',facet_col='Status',
                                 nbinsx=25,nbinsy=20,color_continuous_scale='Blues',
@@ -106,6 +111,10 @@ with activity:
                       hover_data=['customers'],title='Contact frequency and recorded attrition',
                       labels={'Contacts_Count_12_mon':'Annual contacts'},color_discrete_sequence=['#D55E00'])
         st.plotly_chart(fig,use_container_width=True)
+        with st.expander('Contact frequency data table'):
+            contact_table = contact.rename(columns={'Contacts_Count_12_mon':'Annual contacts','customers':'Customers',
+                                                   'churned':'Attrited customers','ci_lower':'95% lower rate','ci_upper':'95% upper rate'})
+            st.dataframe(contact_table.drop(columns='churn_rate'),hide_index=True,use_container_width=True)
         st.write('Repeated contact and low activity accompany attrition. Contacts may include closure administration; there is no timestamp to establish which happened first.')
 with model_tab:
     st.subheader('Can account activity distinguish the recorded outcomes?')
@@ -128,11 +137,24 @@ with model_tab:
                                   colorscale='Blues',showscale=False))
         fig.update_layout(title='Classification outcomes on the internal test split',height=350)
         st.plotly_chart(fig,use_container_width=True)
+        with st.expander('Classification outcomes data table'):
+            st.dataframe(pd.DataFrame(matrix,index=['Actually retained','Actually attrited'],
+                                      columns=['Predicted retained','Predicted attrited']),use_container_width=True)
         st.write(f"The prototype missed {result['fn']} attrited customers and flagged {result['fp']} retained customers. A bank would need to agree the costs of these errors before choosing a production threshold.")
         importance = pd.read_csv(OUTPUT/'validation_importance.csv')
+        feature_labels = {
+            'Total_Relationship_Count':'Products held','Months_Inactive_12_mon':'Inactive months',
+            'Contacts_Count_12_mon':'Annual contacts','Credit_Limit':'Credit limit',
+            'Total_Revolving_Bal':'Revolving balance','Total_Amt_Chng_Q4_Q1':'Transaction amount change',
+            'Total_Trans_Amt':'Annual transaction amount','Total_Trans_Ct':'Annual transaction count',
+            'Total_Ct_Chng_Q4_Q1':'Transaction count change','Avg_Utilization_Ratio':'Credit utilisation'}
+        importance['feature'] = importance.feature.map(feature_labels).fillna(importance.feature)
         st.plotly_chart(px.bar(importance.sort_values('ap_decrease'),x='ap_decrease',y='feature',orientation='h',
                               labels={'ap_decrease':'Drop in validation average precision','feature':'Activity measure'},
                               title='Which features does the model rely on?'),use_container_width=True)
+        with st.expander('Feature reliance data table'):
+            st.dataframe(importance.rename(columns={'feature':'Activity measure','ap_decrease':'Average precision decrease',
+                                                   'sd':'Variation across permutations'}),hide_index=True,use_container_width=True)
         st.caption('Permutation importance measures reliance, not causation. Correlated features can share importance.')
         st.warning('This is an internal snapshot classification experiment. Unit 1 explored this dataset already. Independent, dated customer data is needed before claiming future churn prediction or deploying customer decisions.')
 with about:
@@ -142,4 +164,4 @@ with about:
     st.write('Customer identifiers, stored classifier outputs and the redundant open-to-buy field are excluded. Unknown demographic values remain missing; no customer rows are dropped in the default view.')
     st.write('The model uses ten numerical account activity features. Demographics, card tier and tenure are excluded. This does not establish fairness: account behaviour can still contain proxies and requires review.')
     st.write('No dated observation window, intervention outcome, retention cost or customer value is supplied. Recommendations are hypotheses for future controlled testing.')
-    st.caption('Chart data is also available as an accessible table in the overview. Plotly supports hover detail and zoom; labels identify status as well as colour.')
+    st.caption('Product rates, transaction frequency, contact rates, classification outcomes and feature reliance have data-table alternatives. Plotly supports hover detail and zoom; labels identify status as well as colour.')
