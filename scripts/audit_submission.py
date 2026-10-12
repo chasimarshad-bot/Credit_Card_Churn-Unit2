@@ -25,8 +25,13 @@ def audit():
     quality = json.loads((OUTPUT / 'quality.json').read_text(encoding='utf-8'))
     assert quality['rows_clean'] == len(df)
     assert quality['churn_count'] == int(df.Churn.sum())
-    assert quality['source_sha256'] == hashlib.sha256(RAW_PATH.read_bytes()).hexdigest(), 'Source digest differs; rerun ETL on this checkout'
-    checks.append('Raw source digest, validated rows and cleaned export agree')
+    source_bytes = RAW_PATH.read_bytes()
+    lf_bytes = source_bytes.replace(b'\r\n', b'\n')
+    # Git checkout/archive line endings can differ without changing CSV content.
+    digest_variants = {hashlib.sha256(content).hexdigest()
+                       for content in (source_bytes, lf_bytes, lf_bytes.replace(b'\n', b'\r\n'))}
+    assert quality['source_sha256'] in digest_variants, 'Source content differs beyond line endings; rerun ETL'
+    checks.append('Raw source digest (allowing checkout line endings), validated rows and cleaned export agree')
 
     results = json.loads((OUTPUT / 'model_results.json').read_text(encoding='utf-8'))
     predictions = pd.read_csv(OUTPUT / 'test_predictions.csv')
