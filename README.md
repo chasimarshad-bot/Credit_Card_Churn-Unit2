@@ -65,7 +65,7 @@ Mann-Whitney compares distributions; interpreting it strictly as a median test r
 
 ## Project plan and methodology
 
-The [GitHub project board](https://github.com/users/chasimarshad-bot/projects/3) tracks delivery. The [task board and MoSCoW priorities](docs/PROJECT_PLAN.md) cover validation, ETL, statistical explanation, tests, modelling, dashboard, evaluation and delivery. The [criterion map](docs/ASSESSMENT_MAP.md) identifies evidence for every Unit 2 pass criterion. It distinguishes implemented evidence from remaining personal reflection and LMS submission.
+The [GitHub project board](https://github.com/users/chasimarshad-bot/projects/3) tracks delivery. The [task board and MoSCoW priorities](docs/PROJECT_PLAN.md) cover validation, ETL, statistical explanation, tests, modelling, dashboard, evaluation and delivery. The [criterion map](docs/ASSESSMENT_MAP.md) identifies evidence for every Unit 2 pass criterion. It distinguishes implemented evidence from the received personal reflection, remaining walkthrough and LMS submission.
 
 Descriptive statistics and nonparametric comparisons suit this observational snapshot. Logistic regression offers a linear benchmark; a random forest captures nonlinear interactions. More elaborate tuning is deferred because an external dated dataset is more valuable than further optimisation of this known snapshot.
 
@@ -116,7 +116,7 @@ Investigate activity-led retention with human review. Obtain dated features befo
 - Sampling representativeness, data-generation process and future drift are unknown.
 - Excluding demographics does not remove behavioural proxies or establish fairness.
 - Small segments have wide intervals; default dashboard exports contain aggregates only.
-- Asim's personal review/reflection and the final LMS submission remain learner tasks.
+- Asim's personal reflection has been received; the independent walkthrough and final LMS submission remain learner tasks.
 - No known application logic defect remains from the completed automated checks. Missing or invalid source data receives a clear message; unavailable model evidence leaves descriptive exploration usable. Hosted rendering and operation are supported by the user screenshot and confirmation; formal accessibility review remains a future improvement.
 
 ## Deployment

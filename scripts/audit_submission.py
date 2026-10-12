@@ -80,7 +80,7 @@ def audit():
     if not status['live_dashboard_url'] or not status['hosted_app_verified']:
         pending.append('Deploy the dashboard and verify the returned live URL')
     if not status['learner_review_complete']:
-        pending.append("Asim must review the work and complete his personal reflection")
+        pending.append("Asim must confirm his independent project walkthrough" if status.get("personal_reflection_received") else "Asim must review the work and complete his personal reflection")
     return {'checks_passed':checks, 'pending_submission_items':pending,
             'submission_ready':not pending}
 

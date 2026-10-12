@@ -18,14 +18,22 @@ A fresh installation exposed PyArrow 26 requiring NumPy 2 at runtime despite suc
 
 A separate lean dependency file removes the need to install optional legacy profiling helpers for the dashboard. UTF-8 without a BOM is used for TOML configuration because the installed parser rejected a BOM.
 
-## Asim's personal reflection - complete after running the project
+## Asim's personal reflection
 
-The account above describes observed implementation changes; it does not represent Asim's personal experience. Add concise answers in your own words:
+Provided by Asim through the project mentor on 12 October 2026.
 
-1. Which method or tool did you learn, and what can you now explain or do yourself?
-2. Which actual problem did you encounter while running/reviewing this project? How did you resolve it?
-3. Which result changed your understanding of the business problem?
-4. Which assistance did you accept, modify or reject, and how did you check it?
-5. What would you change with dated data or more time, and why?
+My main takeaway from this project was that customers who made fewer transactions were more likely to leave. It was interesting to see this pattern in the data, although I understand that it doesn't necessarily mean low activity was the reason they left.
 
-Before submission, demonstrate the dashboard, explain the split/threshold protocol, distinguish association from causation and describe why this model is not a proven future churn forecast. Do not replace these prompts with invented experiences.
+We compared Logistic Regression and Random Forest to see which model performed better. Logistic Regression was a good starting point because it's simple and easier to understand, whereas Random Forest can identify more complex patterns. Random Forest gave better results based on the metric we used, which is why we selected it. However, I also learned that no model is perfect, and some predictions can still be wrong.
+
+One thing I learned was how to use the dashboard to explore the data through different filters and charts. It helped me understand the results better rather than just looking at numbers.
+
+I also realised how important it is to check the results properly. Initially, understanding the model predictions and the difference between the two models was a bit confusing, but going through the results and explanations helped me make more sense of them.
+
+AI and mentor guidance helped me understand the technical parts of the project, especially the model comparison and how to interpret the results. However, I know it's important not to rely entirely on AI, so I focused on understanding the findings and checking them against the project results.
+
+If I were to improve the project, I would use more recent customer data and include information about when customers actually left. I think this would help us understand churn better and potentially identify customers at risk before they leave.
+
+## Remaining walkthrough
+
+The reflection has been received. An independent walkthrough has not yet been confirmed. Use the [walkthrough guide](WALKTHROUGH.md) to demonstrate filtering, explain the training/validation/test partitions and threshold choice, and describe the limits of predictions from a historical snapshot.

@@ -2,5 +2,7 @@
   "live_dashboard_url": "https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/",
   "hosted_app_verified": true,
   "learner_review_complete": false,
-  "hosted_verification_evidence": "User supplied a screenshot of the rendered overview and subsequently confirmed that the dashboard works on 12 October 2026."
+  "hosted_verification_evidence": "User supplied a screenshot of the rendered overview and subsequently confirmed that the dashboard works on 12 October 2026.",
+  "personal_reflection_received": true,
+  "personal_reflection_evidence": "Asim's reflection supplied by the user on 12 October 2026 and recorded in docs/LEARNING_REFLECTION.md. Independent walkthrough confirmation remains outstanding."
 }

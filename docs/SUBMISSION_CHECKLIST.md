@@ -22,7 +22,8 @@
 - [x] Genuine commits published under the project account.
 - [x] Hosted dashboard deployment, screenshot review and user confirmation.
 - Formal accessibility auditing remains a documented limitation.
-- [ ] Asim's personal learning/AI reflection and independent project walkthrough.
+- [x] Asim's personal learning/AI reflection received and recorded.
+- [ ] Asim's independent project walkthrough.
 - [ ] Confirm the official deadline and submission fields in the LMS.
 - [ ] Submit the source and live dashboard links using Asim's registered email.
 
@@ -40,7 +41,7 @@ python -m streamlit run app.py
 
 The audit verifies raw/export consistency, splits and metrics, saved hypotheses, notebook execution, documentation links and Git attribution. It lists the remaining learner review rather than silently treating it as complete. `--require-submission-ready` returns a failing exit status until learner review is complete.
 
-Update `submission_status.json` only after the matching evidence exists. Add the verified live URL to the README and deployment guide. Replace the personal reflection prompts with Asim's actual experience; review assistance credits and the assessment form together.
+Update `submission_status.json` only after the matching evidence exists. Add the verified live URL to the README and deployment guide. Asim's supplied reflection is recorded in LEARNING_REFLECTION.md; confirm the independent walkthrough and review assistance credits and the assessment form together.
 
 ## Commit history and release copies
 
