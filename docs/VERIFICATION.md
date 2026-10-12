@@ -34,3 +34,9 @@ Hosted URL supplied on 12 October 2026: https://creditcardchurn-unit2-iaagzfaqp5
 On 12 October 2026 the user supplied a hosted-dashboard screenshot showing 10,127 customers, 1,627 attrited customers, 16.1% attrition, charts and filters. The user then confirmed that it works. Hosted verification is recorded as complete on that evidence; it is not described as an automated browser test. The unused Render setup was removed because Streamlit Community Cloud already hosts the application. Earlier pending-hosting notes above describe the state before this confirmation.
 
 Personal learner review remains unverified. No personal learning experience or assessment submission has been invented.
+
+## Reliability review and follow-up
+
+Twelve tests pass after adding report consistency checks and graceful handling of unavailable model/source evidence. The model-report failure test verifies that portfolio metrics remain usable. Table rates use explicit percentage units and readable headings. Compilation and dependency checks also pass. Model training, split assignments and numerical results are unchanged.
+
+The independent technical review is in `TECHNICAL_REVIEW.md`. Its publication judgement is scoped to the educational dashboard; formal load/security/accessibility audits and suitability for banking decisions are not claimed. The latest update needs the normal post-deployment hosted smoke check; the earlier screenshot/user confirmation remains the record for initial hosted operation.

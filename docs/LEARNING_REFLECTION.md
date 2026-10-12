@@ -1,5 +1,7 @@
 # Development reflection and learner review
 
+The completed [independent technical review](TECHNICAL_REVIEW.md) assesses the implementation for Asim. It is separate from his personal reflection.
+
 ## Technical changes evidenced in this implementation
 
 The original analysis used sequential notebook steps. Unit 2 moves validation, cleaning, hypothesis tests and modelling into reusable modules. This reduces transformation duplication and gives the dashboard the same source of cleaned data as the notebooks.

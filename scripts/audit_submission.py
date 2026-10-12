@@ -15,6 +15,7 @@ import pandas as pd
 from src.data import RAW_PATH, OUTPUT, load_data
 from src.modelling import metrics, split_data
 from src.statistics import test_hypotheses
+from src.reports import load_model_reports
 
 
 def audit():
@@ -33,7 +34,8 @@ def audit():
     assert quality['source_sha256'] in digest_variants, 'Source content differs beyond line endings; rerun ETL'
     checks.append('Raw source digest (allowing checkout line endings), validated rows and cleaned export agree')
 
-    results = json.loads((OUTPUT / 'model_results.json').read_text(encoding='utf-8'))
+    results, _ = load_model_reports(OUTPUT)
+    checks.append('Saved model report schema, feature evidence and classification counts are consistent')
     predictions = pd.read_csv(OUTPUT / 'test_predictions.csv')
     assignments = pd.read_csv(OUTPUT / 'split_assignments.csv')
     assert assignments.snapshot_row.is_unique

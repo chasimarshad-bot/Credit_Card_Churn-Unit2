@@ -8,7 +8,7 @@ This project extends [the Unit 1 submission](https://github.com/chasimarshad-bot
 
 ## Review and submission
 
-Start with the [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The deployed technical project is complete. The source remains a review candidate until learner review is complete. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
+Read the [independent technical review](docs/TECHNICAL_REVIEW.md), then start with the [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The deployed technical project is complete. The source remains a review candidate until learner review is complete. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
 
 ## Run locally
 
@@ -117,7 +117,7 @@ Investigate activity-led retention with human review. Obtain dated features befo
 - Excluding demographics does not remove behavioural proxies or establish fairness.
 - Small segments have wide intervals; default dashboard exports contain aggregates only.
 - Asim's personal review/reflection and the final LMS submission remain learner tasks.
-- No known application logic defect remains from the completed automated checks. Hosted rendering and operation are supported by the user screenshot and confirmation; formal accessibility review remains a future improvement.
+- No known application logic defect remains from the completed automated checks. Missing or invalid source data receives a clear message; unavailable model evidence leaves descriptive exploration usable. Hosted rendering and operation are supported by the user screenshot and confirmation; formal accessibility review remains a future improvement.
 
 ## Deployment
 
@@ -132,7 +132,7 @@ python -m unittest discover -s tests -v
 python -m compileall -q src app.py run_analysis.py
 ```
 
-Data tests cover rejection of corrupt input, row preservation, leakage exclusions, disjoint/stratified splits, Wilson intervals and multiple-test correction. Dashboard tests cover initial rendering, empty selections, reset, missing-data exclusion and narrow segments. Both new notebooks execute end to end. A fresh Windows Python 3.12 environment also passed the seven tests and dependency checks after a PyArrow compatibility pin. The [verification record](docs/VERIFICATION.md) records completed checks and limits.
+Twelve automated tests pass. Report checks reject inconsistent metrics, confusion counts and feature evidence; failure-path dashboard tests verify clear messages and continued descriptive access. Data tests cover rejection of corrupt input, row preservation, leakage exclusions, disjoint/stratified splits, Wilson intervals and multiple-test correction. Dashboard tests cover initial rendering, empty selections, reset, missing-data exclusion and narrow segments. Both new notebooks execute end to end. A fresh Windows Python 3.12 environment also passed the seven tests and dependency checks after a PyArrow compatibility pin. The [verification record](docs/VERIFICATION.md) records completed checks and limits.
 
 ## Main libraries and structure
 

@@ -18,7 +18,7 @@
 - [x] Justified supervised model, baseline, separate partitions and error analysis.
 - [x] Two executed Unit 2 notebooks with saved outputs.
 - [x] Interactive dashboard with multiple plot types, filtering and aggregate export.
-- [x] Limitations, technical reflection, assistance record and criterion map.
+- [x] Limitations, technical reflection, independent technical review, assistance record and criterion map.
 - [x] Genuine commits published under the project account.
 - [x] Hosted dashboard deployment, screenshot review and user confirmation.
 - Formal accessibility auditing remains a documented limitation.
@@ -49,8 +49,8 @@ The initial commit imports the existing Unit 1 snapshot and credits its sources.
 A release candidate contains a source ZIP and a Git bundle. The ZIP is convenient for review; **GitHub's source ZIP alone does not contain commit history**. Use the `.bundle` to keep the full Unit 2 history offline:
 
 ```powershell
-git bundle verify Credit_Card_Churn-Unit2-v1.0.0-rc3.bundle
-git clone Credit_Card_Churn-Unit2-v1.0.0-rc3.bundle Credit_Card_Churn-Unit2-review
+git bundle verify Credit_Card_Churn-Unit2-v1.0.0-rc4.bundle
+git clone Credit_Card_Churn-Unit2-v1.0.0-rc4.bundle Credit_Card_Churn-Unit2-review
 ```
 
 The technical project is deployed; the release remains a candidate until learner review is complete. No assessment submission has been made on Asim's behalf.
