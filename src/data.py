@@ -30,6 +30,8 @@ def validate_raw(df):
         raise ValueError('Both attrition classes are required')
     numeric = FEATURES + ['Customer_Age', 'Dependent_count', 'Months_on_book']
     for column in numeric:
+        if not pd.api.types.is_numeric_dtype(df[column]):
+            raise ValueError(f'{column} must contain numeric values, not text')
         values = pd.to_numeric(df[column], errors='coerce')
         if not np.isfinite(values).all() or values.lt(0).any():
             raise ValueError(f'{column} must contain finite, nonnegative numbers')

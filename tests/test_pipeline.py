@@ -27,6 +27,7 @@ class DataTests(unittest.TestCase):
         bad = self.raw.copy(); bad.loc[0,'Total_Trans_Ct']=-1; cases.append(bad)
         bad = self.raw.copy(); bad.loc[0,'Credit_Limit']=np.inf; cases.append(bad)
         bad = self.raw.copy(); bad.loc[0,'Avg_Utilization_Ratio']=1.1; cases.append(bad)
+        bad = self.raw.copy(); bad['Total_Trans_Ct'] = bad.Total_Trans_Ct.astype(str); cases.append(bad)
         cases.append(self.raw.drop(columns='Total_Trans_Ct'))
         for bad in cases:
             with self.subTest():
