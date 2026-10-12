@@ -1,0 +1,76 @@
+{
+  "selected_model": "Random forest",
+  "seed": 42,
+  "features": [
+    "Total_Relationship_Count",
+    "Months_Inactive_12_mon",
+    "Contacts_Count_12_mon",
+    "Credit_Limit",
+    "Total_Revolving_Bal",
+    "Total_Amt_Chng_Q4_Q1",
+    "Total_Trans_Amt",
+    "Total_Trans_Ct",
+    "Total_Ct_Chng_Q4_Q1",
+    "Avg_Utilization_Ratio"
+  ],
+  "split_sizes": {
+    "train": 6076,
+    "validation": 2025,
+    "test": 2026
+  },
+  "split_churn_rates": {
+    "train": 0.16063199473337722,
+    "validation": 0.16049382716049382,
+    "test": 0.16090819348469892
+  },
+  "validation_precision_floor_met": true,
+  "validation_selected": {
+    "threshold": 0.25000000000000006,
+    "accuracy": 0.899753086419753,
+    "balanced_accuracy": 0.930339366515837,
+    "precision": 0.619140625,
+    "recall": 0.9753846153846154,
+    "f2": 0.8747240618101545,
+    "average_precision": 0.9256457047116164,
+    "roc_auc": 0.9830823529411765,
+    "tn": 1505,
+    "fp": 195,
+    "fn": 8,
+    "tp": 317
+  },
+  "test": {
+    "threshold": 0.25000000000000006,
+    "accuracy": 0.8968410661401777,
+    "balanced_accuracy": 0.9248935402381812,
+    "precision": 0.6140350877192983,
+    "recall": 0.9662576687116564,
+    "f2": 0.8668134287286736,
+    "average_precision": 0.9218726136414298,
+    "roc_auc": 0.983370624323349,
+    "tn": 1502,
+    "fp": 198,
+    "fn": 11,
+    "tp": 315
+  },
+  "dummy_test": {
+    "threshold": 0.5,
+    "accuracy": 0.8390918065153011,
+    "balanced_accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f2": 0.0,
+    "average_precision": 0.16090819348469892,
+    "roc_auc": 0.5,
+    "tn": 1700,
+    "fp": 0,
+    "fn": 326,
+    "tp": 0
+  },
+  "test_ap_bootstrap_95": [
+    0.8990141314672132,
+    0.942164747911494
+  ],
+  "validation_ap_without_contacts": 0.9257593985267734,
+  "validation_ap_with_contacts": 0.9256457047116164,
+  "caveat": "Unit 1 explored the full snapshot. This is an internal holdout, not an independent external validation or prospective churn forecast."
+}
