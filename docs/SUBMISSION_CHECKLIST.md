@@ -1,5 +1,7 @@
 # Submission checklist
 
+See the [submission handover](SUBMISSION_HANDOVER.md) for ready-to-copy links and a project description.
+
 ## Submission links
 
 - Source: https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2
@@ -50,8 +52,8 @@ The initial commit imports the existing Unit 1 snapshot and credits its sources.
 A release candidate contains a source ZIP and a Git bundle. The ZIP is convenient for review; **GitHub's source ZIP alone does not contain commit history**. Use the `.bundle` to keep the full Unit 2 history offline:
 
 ```powershell
-git bundle verify Credit_Card_Churn-Unit2-v1.0.0-rc4.bundle
-git clone Credit_Card_Churn-Unit2-v1.0.0-rc4.bundle Credit_Card_Churn-Unit2-review
+git bundle verify Credit_Card_Churn-Unit2-v1.0.0-rc5.bundle
+git clone Credit_Card_Churn-Unit2-v1.0.0-rc5.bundle Credit_Card_Churn-Unit2-review
 ```
 
 The technical project is deployed; the release remains a candidate until learner review is complete. No assessment submission has been made on Asim's behalf.

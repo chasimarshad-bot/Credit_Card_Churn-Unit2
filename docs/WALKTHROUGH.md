@@ -30,4 +30,4 @@ The snapshot has no time window, independent external test or campaign-cost data
 
 ## 7. Explain the development evidence
 
-Show the GitHub commits, project board and automated checks. Explain which work was imported and which was added for Unit 2. Review the assistance record and add Asim's own learning account after he has run and understood the project.
+Show the GitHub commits, project board and automated checks. Explain which work was imported and which was added for Unit 2. Review the assistance record and Asim's supplied personal reflection. Confirm that he can explain the decisions in this walkthrough.
