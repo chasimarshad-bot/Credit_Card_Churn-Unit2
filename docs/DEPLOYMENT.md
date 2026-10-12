@@ -14,3 +14,11 @@ Status: repository/app prepared; a live host URL has not yet been verified.
 Generated reports are committed so the app does not train a model during startup. The app reads the supplied snapshot through the same validation/cleaning functions as the notebooks. It writes no runtime customer records and needs no database.
 
 See the [official deployment guide](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy). If build dependencies fail, capture the actual host error and fix it; local interaction tests do not prove a clean Linux/cloud install.
+
+## Render alternative
+
+The root `render.yaml` defines a Python web service using the free compute plan, a pip build, Streamlit bound to the supplied PORT and the Streamlit health endpoint. It has no secrets or database. A service is not created by committing this file.
+
+Install/connect the Render integration to allow deployment from this conversation, or create a Blueprint from this repository in Render. Review the returned service configuration, build logs and live URL. Free-host availability and startup latency are subject to the host's current terms. Do not mark hosting complete based only on the configuration file.
+
+Configuration reference: [Render Blueprint specification](https://render.com/docs/blueprint-spec).

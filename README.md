@@ -61,7 +61,7 @@ Mann?Whitney compares distributions; interpreting it strictly as a median test r
 
 ## Project plan and methodology
 
-The [task board and MoSCoW priorities](docs/PROJECT_PLAN.md) cover validation, ETL, statistical explanation, tests, modelling, dashboard, evaluation and delivery. The [criterion map](docs/ASSESSMENT_MAP.md) identifies evidence for every Unit 2 pass criterion. It distinguishes implemented evidence from remaining personal reflection and deployment work.
+The [GitHub project board](https://github.com/users/chasimarshad-bot/projects/3) tracks delivery. The [task board and MoSCoW priorities](docs/PROJECT_PLAN.md) cover validation, ETL, statistical explanation, tests, modelling, dashboard, evaluation and delivery. The [criterion map](docs/ASSESSMENT_MAP.md) identifies evidence for every Unit 2 pass criterion. It distinguishes implemented evidence from remaining personal reflection and deployment work.
 
 Descriptive statistics and nonparametric comparisons suit this observational snapshot. Logistic regression offers a linear benchmark; a random forest captures nonlinear interactions. More elaborate tuning is deferred because an external dated dataset is more valuable than further optimisation of this known snapshot.
 
@@ -117,7 +117,7 @@ Investigate activity-led retention with human review. Obtain dated features befo
 
 The app is ready for a Python Streamlit host. Streamlit Community Cloud can use this repository, branch `main`, entry point `app.py` and Python 3.12. The root `requirements.txt` includes the lean Unit 2 runtime. Commit generated aggregate/model reports so the Model review tab works without training on the host.
 
-See [deployment instructions](docs/DEPLOYMENT.md). **A live URL is not claimed until the service confirms deployment.** Code Institute's supplied meeting guidance states that Streamlit submissions require deployment. Sites hosting uses JavaScript Workers and cannot run this Python server directly.
+See [deployment instructions](docs/DEPLOYMENT.md). A `render.yaml` is also provided for a Render Python web service; deployment requires the hosting account connection. **A live URL is not claimed until the service confirms deployment.** Code Institute's supplied meeting guidance states that Streamlit submissions require deployment. Sites hosting uses JavaScript Workers and cannot run this Python server directly.
 
 ## Verification
 

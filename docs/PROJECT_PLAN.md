@@ -2,6 +2,8 @@
 
 Audience: a bank retention analyst. Goal: explore recorded attrition and evaluate whether account activity distinguishes the recorded outcomes. The dataset cannot test future lead time or campaign effectiveness.
 
+GitHub board: https://github.com/users/chasimarshad-bot/projects/3
+
 ## Task board
 
 This is the actual implementation record, not a reconstructed daily history. The Unit 1 files were imported as existing work.
@@ -23,7 +25,7 @@ This is the actual implementation record, not a reconstructed daily history. The
 | Test bad input and dashboard interactions | Seven passing automated tests | Done |
 | Execute and save both Unit 2 notebooks | All code cells have execution counts; no error outputs | Done |
 | Document limits, setup and assistance | README and supporting documentation | Done |
-| Publish separate repository | Repository delivery step | In progress |
+| Publish separate repository | GitHub repository published under chasimarshad-bot | Done |
 | Deploy and check hosted Streamlit app | Live URL and host logs | Pending host login |
 | Review personal learning and submission | Asim's own reflection and walkthrough | Pending learner review |
 
