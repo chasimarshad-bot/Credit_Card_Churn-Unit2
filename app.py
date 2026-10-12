@@ -1,12 +1,14 @@
 """Interactive historical churn explorer for retention analysts."""
-import json
-from pathlib import Path
+import logging
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 from src.data import load_data, OUTPUT
 from src.statistics import segment_summary, wilson_interval
+from src.reports import load_model_reports
+
+logger = logging.getLogger(__name__)
 
 st.set_page_config(page_title='Credit Card | Retention Insights', page_icon='📊',layout='wide')
 COLORS = {'Existing Customer':'#0072B2','Attrited Customer':'#D55E00'}
@@ -16,13 +18,19 @@ def customers():
     return load_data()
 
 @st.cache_data
-def read_report(path, modified):
-    return json.loads(Path(path).read_text(encoding='utf-8'))
+def model_reports(results_modified, importance_modified):
+    return load_model_reports(OUTPUT)
 
 st.title('Credit card retention insights')
 st.write('Explore recorded attrition, compare customer segments and review a classification prototype.')
 st.caption('Historical snapshot · 10,127 customers · Educational analysis, not a live bank monitoring system')
-df = customers()
+try:
+    df = customers()
+except (OSError, ValueError, pd.errors.ParserError):
+    logger.exception('Customer snapshot failed validation or could not be loaded')
+    st.error('The customer data is temporarily unavailable. Please contact the project maintainer.')
+    st.stop()
+
 def reset_filters():
     # Callbacks run before widgets are reconstructed, restoring their explicit state.
     st.session_state['cards'] = sorted(df.Card_Category.unique())
@@ -78,9 +86,14 @@ with overview:
                                            arrayminus=(rates.churn_rate-rates.ci_lower)*100))
             st.plotly_chart(fig,use_container_width=True)
         st.write('Smaller product portfolios show greater historical attrition. This association does not establish that adding a product will prevent departure.')
-        st.dataframe(rates.rename(columns={'Total_Relationship_Count':'Products held'}),hide_index=True,use_container_width=True)
+        rates_display = rates[['Total_Relationship_Count','customers','churned']].rename(
+            columns={'Total_Relationship_Count':'Products held','customers':'Customers','churned':'Attrited customers'})
+        rates_display['Attrition (%)'] = (rates.churn_rate*100).round(2)
+        rates_display['95% lower (%)'] = (rates.ci_lower*100).round(2)
+        rates_display['95% upper (%)'] = (rates.ci_upper*100).round(2)
+        st.dataframe(rates_display,hide_index=True,use_container_width=True)
         # Export aggregates only; avoid offering individual customer records in the dashboard.
-        st.download_button('Download segment summary (CSV)',rates.to_csv(index=False),
+        st.download_button('Download segment summary (CSV)',rates_display.to_csv(index=False),
                             file_name='segment_summary.csv',mime='text/csv')
 with activity:
     st.subheader('Which behaviours accompany recorded attrition?')
@@ -113,16 +126,21 @@ with activity:
         st.plotly_chart(fig,use_container_width=True)
         with st.expander('Contact frequency data table'):
             contact_table = contact.rename(columns={'Contacts_Count_12_mon':'Annual contacts','customers':'Customers',
-                                                   'churned':'Attrited customers','ci_lower':'95% lower rate','ci_upper':'95% upper rate'})
-            st.dataframe(contact_table.drop(columns='churn_rate'),hide_index=True,use_container_width=True)
+                                                   'churned':'Attrited customers','ci_lower':'95% lower (%)','ci_upper':'95% upper (%)'})
+            contact_table[['95% lower (%)','95% upper (%)']] *= 100
+            st.dataframe(contact_table.drop(columns='churn_rate').round(2),hide_index=True,use_container_width=True)
         st.write('Repeated contact and low activity accompany attrition. Contacts may include closure administration; there is no timestamp to establish which happened first.')
 with model_tab:
     st.subheader('Can account activity distinguish the recorded outcomes?')
     report_path = OUTPUT/'model_results.json'
-    if not report_path.exists():
-        st.info('Model results have not been generated. Run python run_analysis.py from the repository root, then refresh.')
-    else:
-        report = read_report(str(report_path),report_path.stat().st_mtime_ns)
+    importance_path = OUTPUT/'validation_importance.csv'
+    report = None
+    try:
+        report, importance = model_reports(report_path.stat().st_mtime_ns,importance_path.stat().st_mtime_ns)
+    except (OSError, ValueError, TypeError, pd.errors.ParserError):
+        logger.exception('Saved model evidence failed validation or could not be loaded')
+        st.info('Model review is temporarily unavailable. Portfolio and activity exploration remain available.')
+    if report is not None:
         result = report['test']
         st.write(f"Selected model: **{report['selected_model']}**. Selection used training cross-validation; the decision threshold used validation data.")
         st.caption('Sidebar filters do not change these fixed test results.')
@@ -141,7 +159,6 @@ with model_tab:
             st.dataframe(pd.DataFrame(matrix,index=['Actually retained','Actually attrited'],
                                       columns=['Predicted retained','Predicted attrited']),use_container_width=True)
         st.write(f"The prototype missed {result['fn']} attrited customers and flagged {result['fp']} retained customers. A bank would need to agree the costs of these errors before choosing a production threshold.")
-        importance = pd.read_csv(OUTPUT/'validation_importance.csv')
         feature_labels = {
             'Total_Relationship_Count':'Products held','Months_Inactive_12_mon':'Inactive months',
             'Contacts_Count_12_mon':'Annual contacts','Credit_Limit':'Credit limit',

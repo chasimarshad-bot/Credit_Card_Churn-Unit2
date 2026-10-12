@@ -1,5 +1,7 @@
 """Dashboard smoke tests using Streamlit's supported testing API."""
 import unittest
+from unittest.mock import patch
+import streamlit as st
 from streamlit.testing.v1 import AppTest
 
 class DashboardTests(unittest.TestCase):
@@ -32,5 +34,29 @@ class DashboardTests(unittest.TestCase):
         self.assertFalse(at.exception)
         self.assertEqual(at.metric[0].value,'20')
         self.assertTrue(any('Fewer than 30' in x.value for x in at.warning))
+
+    def test_model_report_failure_preserves_portfolio(self):
+        st.cache_data.clear()
+        try:
+            with patch('src.reports.load_model_reports',side_effect=ValueError('Invalid saved evidence')):
+                with self.assertLogs(level='ERROR'):
+                    at=AppTest.from_file('app.py',default_timeout=45).run()
+            self.assertFalse(at.exception)
+            self.assertEqual(at.metric[0].value,'10,127')
+            self.assertTrue(any('Model review is temporarily unavailable' in item.value for item in at.info))
+        finally:
+            st.cache_data.clear()
+
+    def test_invalid_source_gives_clear_message(self):
+        st.cache_data.clear()
+        try:
+            with patch('src.data.load_data',side_effect=ValueError('Invalid customer data')):
+                with self.assertLogs(level='ERROR'):
+                    at=AppTest.from_file('app.py',default_timeout=45).run()
+            self.assertFalse(at.exception)
+            self.assertTrue(any('customer data is temporarily unavailable' in item.value for item in at.error))
+            self.assertEqual(len(at.metric),0)
+        finally:
+            st.cache_data.clear()
 
 if __name__ == '__main__': unittest.main()
