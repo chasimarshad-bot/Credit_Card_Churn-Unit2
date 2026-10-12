@@ -26,3 +26,5 @@ The audit found damaged punctuation in the README (including negative effect-siz
 The audit accepts LF/CRLF checkout differences when comparing the original source digest; any other source-content change fails the check. This keeps the same content check usable with both Git checkouts and GitHub source ZIPs.
 
 Dashboard follow-up: transaction frequency, contact rates, classification outcomes and feature reliance now have expandable table alternatives. The dashboard test checks that frequency counts total 10,127, each status share totals 100%, classification outcomes total 2,026 and all ten feature labels are readable without column-name underscores. The model/data outputs are unchanged.
+
+Hosted URL supplied on 12 October 2026: https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/. Cookie-aware HTTP requests returned status 200 and the Streamlit platform HTML. The health path also returned platform HTML rather than a definitive app health response; successful Python startup and browser interactions have not been inferred from these responses.

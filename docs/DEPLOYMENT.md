@@ -1,6 +1,6 @@
 # Streamlit deployment
 
-Status: repository/app prepared; a live host URL has not yet been verified.
+Status: hosted URL supplied on 12 October 2026: [Open dashboard](https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/). Cookie-aware HTTP requests reach the Streamlit platform page with status 200. The automated response does not establish successful Python app startup or interactive rendering; a hosted browser check is still required.
 
 1. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/) with the GitHub identity that can access the Unit 2 repository.
 2. Select **Create app**, then the existing GitHub app option.

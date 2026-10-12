@@ -8,7 +8,7 @@ This project extends [the Unit 1 submission](https://github.com/chasimarshad-bot
 
 ## Review and submission
 
-Start with the [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The source is a release candidate while live hosting and learner review remain open. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
+Start with the [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The source is a release candidate while hosted browser verification and learner review remain open. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
 
 ## Run locally
 
@@ -116,10 +116,12 @@ Investigate activity-led retention with human review. Obtain dated features befo
 - Sampling representativeness, data-generation process and future drift are unknown.
 - Excluding demographics does not remove behavioural proxies or establish fairness.
 - Small segments have wide intervals; default dashboard exports contain aggregates only.
-- Public Streamlit deployment and Asim's personal reflection remain delivery items until explicitly verified.
+- Hosted dashboard verification and Asim's personal reflection remain delivery items until explicitly verified.
 - No known application logic defect remains from the completed automated checks. Browser layout and hosted execution still need final verification.
 
 ## Deployment
+
+[Open the hosted dashboard](https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/). The URL has been supplied and responds; browser rendering and interaction checks remain to be confirmed.
 
 [Deploy this project to Render](https://render.com/deploy?repo=https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2) - sign in, review the supplied free-plan configuration and launch it. No application secrets are needed.
 

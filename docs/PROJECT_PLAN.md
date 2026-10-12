@@ -26,7 +26,7 @@ This is the actual implementation record, not a reconstructed daily history. The
 | Execute and save both Unit 2 notebooks | All code cells have execution counts; no error outputs | Done |
 | Document limits, setup and assistance | README and supporting documentation | Done |
 | Publish separate repository | GitHub repository published under chasimarshad-bot | Done |
-| Deploy and check hosted Streamlit app | Live URL and host logs | Pending host login |
+| Deploy and check hosted Streamlit app | Hosted URL supplied; browser rendering and interaction checks pending | In progress |
 | Review personal learning and submission | Asim's own reflection and walkthrough | Pending learner review |
 
 ## MoSCoW

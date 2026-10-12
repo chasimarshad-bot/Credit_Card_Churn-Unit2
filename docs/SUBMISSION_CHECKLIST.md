@@ -6,7 +6,7 @@
 - Commit history: https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2/commits/main/
 - Project board: https://github.com/users/chasimarshad-bot/projects/3
 - Release candidates: https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2/releases
-- Live dashboard: pending deployment; use the actual returned URL, never a proposed hostname.
+- Live dashboard: https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/ (hosted browser verification pending).
 
 ## Technical evidence
 
