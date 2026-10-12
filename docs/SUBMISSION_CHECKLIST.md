@@ -6,7 +6,7 @@
 - Commit history: https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2/commits/main/
 - Project board: https://github.com/users/chasimarshad-bot/projects/3
 - Release candidates: https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2/releases
-- Live dashboard: https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/ (hosted browser verification pending).
+- Live dashboard: https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/ (user screenshot and operation confirmation received).
 
 ## Technical evidence
 
@@ -20,7 +20,8 @@
 - [x] Interactive dashboard with multiple plot types, filtering and aggregate export.
 - [x] Limitations, technical reflection, assistance record and criterion map.
 - [x] Genuine commits published under the project account.
-- [ ] Hosted dashboard deployment and browser/accessibility review.
+- [x] Hosted dashboard deployment, screenshot review and user confirmation.
+- Formal accessibility auditing remains a documented limitation.
 - [ ] Asim's personal learning/AI reflection and independent project walkthrough.
 - [ ] Confirm the official deadline and submission fields in the LMS.
 - [ ] Submit the source and live dashboard links using Asim's registered email.
@@ -37,7 +38,7 @@ python scripts/audit_submission.py
 python -m streamlit run app.py
 ```
 
-The audit verifies raw/export consistency, splits and metrics, saved hypotheses, notebook execution, documentation links and Git attribution. It lists the two evidence gaps rather than silently treating them as complete. `--require-submission-ready` returns a failing exit status until the tracked hosting and learner review status is complete.
+The audit verifies raw/export consistency, splits and metrics, saved hypotheses, notebook execution, documentation links and Git attribution. It lists the remaining learner review rather than silently treating it as complete. `--require-submission-ready` returns a failing exit status until learner review is complete.
 
 Update `submission_status.json` only after the matching evidence exists. Add the verified live URL to the README and deployment guide. Replace the personal reflection prompts with Asim's actual experience; review assistance credits and the assessment form together.
 
@@ -48,8 +49,8 @@ The initial commit imports the existing Unit 1 snapshot and credits its sources.
 A release candidate contains a source ZIP and a Git bundle. The ZIP is convenient for review; **GitHub's source ZIP alone does not contain commit history**. Use the `.bundle` to keep the full Unit 2 history offline:
 
 ```powershell
-git bundle verify Credit_Card_Churn-Unit2-v1.0.0-rc2.bundle
-git clone Credit_Card_Churn-Unit2-v1.0.0-rc2.bundle Credit_Card_Churn-Unit2-review
+git bundle verify Credit_Card_Churn-Unit2-v1.0.0-rc3.bundle
+git clone Credit_Card_Churn-Unit2-v1.0.0-rc3.bundle Credit_Card_Churn-Unit2-review
 ```
 
-The release is a candidate until hosting and learner review are complete. No assessment submission has been made on Asim's behalf.
+The technical project is deployed; the release remains a candidate until learner review is complete. No assessment submission has been made on Asim's behalf.

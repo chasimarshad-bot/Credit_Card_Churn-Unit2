@@ -12,9 +12,9 @@ This map uses the supplied Unit 2 handbook/checklist. It is an evidence index, n
 | 3.1 Analyse a real-world dataset | Raw-source ETL, EDA and three exploratory tests | Implemented |
 | 3.2 Assess effectiveness and alternatives | Baseline, errors, sensitivity, bootstrap limits and recommendations | Implemented |
 | 3.3 Present structured plan | Notebook 05 and `PROJECT_PLAN.md` task board | Implemented |
-| 4.1 Integrate analytics tools | pandas/scipy/scikit-learn notebooks and Plotly/Streamlit app | Local implementation verified; hosted URL supplied, browser checks pending |
+| 4.1 Integrate analytics tools | pandas/scipy/scikit-learn notebooks and Plotly/Streamlit app | Deployed; user screenshot and working-dashboard confirmation received |
 | 4.2 Evaluate learning/adaptation | Technical development reflection and learner prompts | Technical account written; personal reflection requires Asim |
 
 At least two plot types: rate bars, histograms, density/hexbin, ROC/precision-recall and confusion matrix. Each has a stated business/diagnostic purpose. README records requirements, results, limitations, source attribution and assistance.
 
-Remaining submission work: live deployment verification, hosted visual/accessibility review, Asim's own learning/AI reflection and final LMS submission. No personal assessment email or meeting transcript is committed.
+Remaining submission work: Asim's own learning/AI reflection and final LMS submission. Formal accessibility auditing is documented as a limitation, rather than claimed complete. No personal assessment email or meeting transcript is committed.

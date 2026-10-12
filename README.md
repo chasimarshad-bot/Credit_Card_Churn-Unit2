@@ -8,7 +8,7 @@ This project extends [the Unit 1 submission](https://github.com/chasimarshad-bot
 
 ## Review and submission
 
-Start with the [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The source is a release candidate while hosted browser verification and learner review remain open. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
+Start with the [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The deployed technical project is complete. The source remains a review candidate until learner review is complete. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
 
 ## Run locally
 
@@ -65,7 +65,7 @@ Mann-Whitney compares distributions; interpreting it strictly as a median test r
 
 ## Project plan and methodology
 
-The [GitHub project board](https://github.com/users/chasimarshad-bot/projects/3) tracks delivery. The [task board and MoSCoW priorities](docs/PROJECT_PLAN.md) cover validation, ETL, statistical explanation, tests, modelling, dashboard, evaluation and delivery. The [criterion map](docs/ASSESSMENT_MAP.md) identifies evidence for every Unit 2 pass criterion. It distinguishes implemented evidence from remaining personal reflection and deployment work.
+The [GitHub project board](https://github.com/users/chasimarshad-bot/projects/3) tracks delivery. The [task board and MoSCoW priorities](docs/PROJECT_PLAN.md) cover validation, ETL, statistical explanation, tests, modelling, dashboard, evaluation and delivery. The [criterion map](docs/ASSESSMENT_MAP.md) identifies evidence for every Unit 2 pass criterion. It distinguishes implemented evidence from remaining personal reflection and LMS submission.
 
 Descriptive statistics and nonparametric comparisons suit this observational snapshot. Logistic regression offers a linear benchmark; a random forest captures nonlinear interactions. More elaborate tuning is deferred because an external dated dataset is more valuable than further optimisation of this known snapshot.
 
@@ -101,7 +101,7 @@ Card category, product count and transaction-range filters apply only to descrip
 
 Expandable data tables provide transaction frequencies, contact rates, classification outcomes and feature reliance without relying on chart colour or hover. Feature names use plain-language labels.
 
-Formal accessibility auditing and visual browser review have not been completed; Streamlit interaction tests verify rendering and controls, not every assistive-technology behaviour.
+The hosted overview was visually checked from the supplied screenshot, and the user confirmed the dashboard works. Formal accessibility auditing has not been completed; automated interaction tests do not establish every assistive-technology behaviour.
 
 ## Conclusions and recommendations
 
@@ -116,18 +116,14 @@ Investigate activity-led retention with human review. Obtain dated features befo
 - Sampling representativeness, data-generation process and future drift are unknown.
 - Excluding demographics does not remove behavioural proxies or establish fairness.
 - Small segments have wide intervals; default dashboard exports contain aggregates only.
-- Hosted dashboard verification and Asim's personal reflection remain delivery items until explicitly verified.
-- No known application logic defect remains from the completed automated checks. Browser layout and hosted execution still need final verification.
+- Asim's personal review/reflection and the final LMS submission remain learner tasks.
+- No known application logic defect remains from the completed automated checks. Hosted rendering and operation are supported by the user screenshot and confirmation; formal accessibility review remains a future improvement.
 
 ## Deployment
 
-[Open the hosted dashboard](https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/). The URL has been supplied and responds; browser rendering and interaction checks remain to be confirmed.
+[Open the live dashboard](https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/). It is hosted on **Streamlit Community Cloud** using this repository, branch `main`, entry point `app.py` and Python 3.12.
 
-[Deploy this project to Render](https://render.com/deploy?repo=https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2) - sign in, review the supplied free-plan configuration and launch it. No application secrets are needed.
-
-The app is ready for a Python Streamlit host. Streamlit Community Cloud can use this repository, branch `main`, entry point `app.py` and Python 3.12. The root `requirements.txt` includes the lean Unit 2 runtime. Commit generated aggregate/model reports so the Model review tab works without training on the host.
-
-See [deployment instructions](docs/DEPLOYMENT.md). A `render.yaml` is also provided for a Render Python web service; deployment requires the hosting account connection. **A live URL is not claimed until the service confirms deployment.** Code Institute's supplied meeting guidance states that Streamlit submissions require deployment. Sites hosting uses JavaScript Workers and cannot run this Python server directly.
+The user supplied a screenshot of the rendered dashboard and confirmed it works on 12 October 2026. See [deployment details](docs/DEPLOYMENT.md). No second hosting service, paid server, database or application secrets are required.
 
 ## Verification
 
