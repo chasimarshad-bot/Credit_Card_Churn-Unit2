@@ -180,7 +180,7 @@ from what the data had to say rather than applied uniformly:
 
 ### 1. One customer in six has already gone (BR1)
 
-![Churn overview](outputs/figures/01_churn_overview.png)
+![Churn overview](../outputs/figures/01_churn_overview.png)
 
 **1,627 of 10,127 customers - 16.07%.** The classes are imbalanced roughly 5:1,
 which is why every comparison in this project is reported as a **rate within each
@@ -189,7 +189,7 @@ hold Blue cards, but so does almost everybody, and it would say nothing.
 
 ### 2. Churned customers use the card about half as often
 
-![Transaction count distribution](outputs/figures/02_transaction_count_distribution.png)
+![Transaction count distribution](../outputs/figures/02_transaction_count_distribution.png)
 
 The median churned customer makes **43 transactions a year against 71** for the
 median retained customer. The histogram scales each group to its own size so the
@@ -211,7 +211,7 @@ why the figure shows the distributions instead.
 
 ### 3. The cliff sits between two products and three
 
-![Churn by products held](outputs/figures/03_churn_by_products_held.png)
+![Churn by products held](../outputs/figures/03_churn_by_products_held.png)
 
 Churn is 25.6% at one product and 27.8% at two, then drops to 17.4% at three and
 settles at 10-12% from four upwards. This is a cliff, not a gradient - which
@@ -220,7 +220,7 @@ third product; pushing a four-product customer to five buys very little.
 
 ### 4. Every additional contact raises the risk
 
-![Churn by contact count](outputs/figures/04_churn_by_contact_count.png)
+![Churn by contact count](../outputs/figures/04_churn_by_contact_count.png)
 
 Churn climbs at every step: 1.8% at zero contacts, 12.5% at two, 22.6% at four,
 33.5% at five - and 100% at six.
@@ -238,7 +238,7 @@ where the gradient is steep but the outcome is not yet settled.
 
 ### 5. Behaviour beats demography, without exception (BR2)
 
-![Behaviour vs demography](outputs/figures/05_behaviour_vs_demography.png)
+![Behaviour vs demography](../outputs/figures/05_behaviour_vs_demography.png)
 
 This is the commercially important result. Each variable is scored by **spread** -
 how many percentage points separate its highest and lowest churn rate, with
@@ -275,7 +275,7 @@ show the customer leaving.
 
 ### 7. A zero balance means nothing on its own
 
-![Zero balance needs activity](outputs/figures/06_zero_balance_needs_activity.png)
+![Zero balance needs activity](../outputs/figures/06_zero_balance_needs_activity.png)
 
 The finding none of the hypotheses anticipated: **54.9% of churned customers
 carry a zero revolving balance, against 18.6% of retained** - three times the

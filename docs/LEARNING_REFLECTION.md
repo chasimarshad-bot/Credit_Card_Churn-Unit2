@@ -16,7 +16,7 @@ A fresh installation exposed PyArrow 26 requiring NumPy 2 at runtime despite suc
 
 A separate lean dependency file removes the need to install optional legacy profiling helpers for the dashboard. UTF-8 without a BOM is used for TOML configuration because the installed parser rejected a BOM.
 
-## Asim's personal reflection ? complete after running the project
+## Asim's personal reflection - complete after running the project
 
 The account above describes observed implementation changes; it does not represent Asim's personal experience. Add concise answers in your own words:
 

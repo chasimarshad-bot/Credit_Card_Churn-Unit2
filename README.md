@@ -6,6 +6,10 @@ A historical analysis of 10,127 credit card customer records, with statistical t
 
 This project extends [the Unit 1 submission](https://github.com/chasimarshad-bot/Credit_Card_Churn-Analysis). The original four notebooks and figures are retained. Their original narrative is archived in [docs/unit1_README.md](docs/unit1_README.md); the narrower interpretations below supersede its causal and timing suggestions. Imported work is credited in the Credits section.
 
+## Review and submission
+
+Start with the [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The source is a release candidate while live hosting and learner review remain open. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
+
 ## Run locally
 
 Use Python 3.12.8. From the repository root in PowerShell:
@@ -53,11 +57,11 @@ Unit 1 already explored the snapshot. These are exploratory follow-up tests, not
 
 | Hypothesis | Method | Result |
 |---|---|---|
-| H1: Transaction-count distributions differ by status | Mann?Whitney U; signed rank-biserial | Median 43 attrited vs 71 retained; effect ?0.591; adjusted p < 0.001 |
-| H2: Q4/Q1 count-change ratio distributions differ | Mann?Whitney U; signed rank-biserial | Median 0.531 vs 0.721; effect ?0.491; adjusted p < 0.001 |
+| H1: Transaction-count distributions differ by status | Mann-Whitney U; signed rank-biserial | Median 43 attrited vs 71 retained; effect -0.591; adjusted p < 0.001 |
+| H2: Q4/Q1 count-change ratio distributions differ | Mann-Whitney U; signed rank-biserial | Median 0.531 vs 0.721; effect -0.491; adjusted p < 0.001 |
 | H3: Product count and attrition are associated | Chi-square; Cramer's V | V = 0.167; adjusted p < 0.001; minimum expected count > 146 |
 
-Mann?Whitney compares distributions; interpreting it strictly as a median test requires comparable shapes. The product test does not show that every adjacent group differs. A reported machine p-value of zero is floating-point underflow; it should be read as p < 0.001. Full statistics are exported to `hypotheses.csv`.
+Mann-Whitney compares distributions; interpreting it strictly as a median test requires comparable shapes. The product test does not show that every adjacent group differs. A reported machine p-value of zero is floating-point underflow; it should be read as p < 0.001. Full statistics are exported to `hypotheses.csv`.
 
 ## Project plan and methodology
 
@@ -77,7 +81,7 @@ The reproducible seed-42 split uses 6,076 training, 2,025 validation and 2,026 t
 | Precision | 61.4% | 0.0% |
 | Accuracy | 89.7% | 83.9% |
 
-At the validation-selected threshold of 0.25, the test outcomes are **315 true positives, 198 false positives, 11 false negatives and 1,502 true negatives**. The 300-resample conditional bootstrap AP interval is approximately 0.899?0.942. It excludes retraining uncertainty, selection bias and drift.
+At the validation-selected threshold of 0.25, the test outcomes are **315 true positives, 198 false positives, 11 false negatives and 1,502 true negatives**. The 300-resample conditional bootstrap AP interval is approximately 0.899-0.942. It excludes retraining uncertainty, selection bias and drift.
 
 Removing contact count changes validation AP from 0.92565 to 0.92576. Contact timing therefore appears avoidable in a future study, but the timing of other fields still needs verification. Feature importance is validation permutation importance; it measures reliance, not causation. Class-weighted scores are not calibrated future churn probabilities.
 
@@ -137,8 +141,8 @@ app.py                         Interactive dashboard
 run_analysis.py                Reproduce Unit 2 reports
 src/                           ETL, statistics and modelling functions
 tests/                         Data and dashboard guardrails
-jupyter_notebooks/01?04*        Retained Unit 1 work
-jupyter_notebooks/05?06*        Executed Unit 2 analysis
+jupyter_notebooks/01-04*        Retained Unit 1 work
+jupyter_notebooks/05-06*        Executed Unit 2 analysis
 inputs/datasets/raw/            Unmodified snapshot
 outputs/unit2/                 Cleaned data, metrics, splits and figures
 docs/                          Plan, criteria, reflection and delivery records
@@ -160,5 +164,5 @@ OpenAI Codex assisted with Unit 2 planning, Python functions, statistical/model 
 - Existing Unit 1 material: [Asim's submitted repository](https://github.com/chasimarshad-bot/Credit_Card_Churn-Analysis); local reference checkout from [Sanif's repository](https://github.com/sanifmujawar/credit-card-customer-churn-analysis). Imported material is retained, not represented as newly developed Unit 2 code.
 - Structure/documentation: [Code Institute data analytics template](https://github.com/Code-Institute-Org/data-analytics-template) and [README template](https://github.com/Code-Institute-Solutions/da-README-template).
 - Assessment requirements: Code Institute Unit 2 handbook and supplied learning-outcome checklist. Private assessor feedback is not included.
-- Method references: [scikit-learn leakage guidance](https://scikit-learn.org/stable/common_pitfalls.html), [evaluation metrics](https://scikit-learn.org/stable/modules/model_evaluation.html), [SciPy Mann?Whitney reference](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html).
+- Method references: [scikit-learn leakage guidance](https://scikit-learn.org/stable/common_pitfalls.html), [evaluation metrics](https://scikit-learn.org/stable/modules/model_evaluation.html), [SciPy Mann-Whitney reference](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html).
 - Development assistance: OpenAI Codex and Sanif, as described above. Commits identify the publishing account; they are not proof of unaided authorship.

@@ -16,3 +16,9 @@ The local Streamlit HTTP health endpoint also returned `ok`. The generated hexbi
 Testing found and resolved a TOML BOM parsing issue, a filter-reset defect and the PyArrow/NumPy conflict. Tests are automated application checks, not a screenshot review or a formal accessibility audit.
 
 Still to verify: clean Linux/cloud installation, hosted URL and browser layout/accessibility. Notebook runtime emitted a Windows event-loop fallback warning; execution completed successfully. No claim of a clean independent environment install is made.
+
+## Submission audit follow-up
+
+The submission audit cross-checks the raw digest and cleaned export, recorded split membership, held-out labels and recomputed metrics, saved hypothesis statistics, valid executed notebooks, local documentation links and Git author/committer identity. These checks pass. The strict submission-ready check intentionally remains unsuccessful while live hosting and learner review are unverified.
+
+The audit found damaged punctuation in the README (including negative effect-size signs) and broken figure links in the archived README after it moved into `docs/`. Both were corrected. Validation now rejects text-typed numerical columns with an explicit error rather than failing later during arithmetic; the corrupt-input regression test covers that case. All seven tests continue to pass.

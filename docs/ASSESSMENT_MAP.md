@@ -5,7 +5,7 @@ This map uses the supplied Unit 2 handbook/checklist. It is an evidence index, n
 | Criterion | Evidence | Review status |
 |---|---|---|
 | 1.1 Explain statistics/probability/data analysis | Notebook 05, Core statistical principles | Implemented and executed |
-| 1.2 Apply these principles | Group measures, Wilson intervals, Mann?Whitney, chi-square and effects | Implemented and executed |
+| 1.2 Apply these principles | Group measures, Wilson intervals, Mann-Whitney, chi-square and effects | Implemented and executed |
 | 1.3 Implement appropriate ML | Notebook 06 and `src/modelling.py` | Implemented and executed |
 | 2.1 Organise project and ETL | `src/`, raw/output separation, quality report and README | Implemented |
 | 2.2 Justify methodologies | Notebook 06 method comparison; notebook 05 assumptions | Implemented |
