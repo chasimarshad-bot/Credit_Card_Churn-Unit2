@@ -8,7 +8,7 @@ This project extends [the Unit 1 submission](https://github.com/chasimarshad-bot
 
 ## Review and submission
 
-Read the [independent technical review](docs/TECHNICAL_REVIEW.md), then start with the [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The deployed technical project is complete. The source remains a review candidate until learner review is complete. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
+Read the [latest readiness review](docs/READINESS_REVIEW.md) and [independent technical review](docs/TECHNICAL_REVIEW.md), then start with the [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The deployed technical project is complete. The source remains a review candidate until learner review is complete. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
 
 ## Run locally
 
@@ -17,12 +17,12 @@ Use Python 3.12.8. From the repository root in PowerShell:
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-unit2.txt
 python run_analysis.py
 python -m streamlit run app.py
 ```
 
-The app normally serves at http://localhost:8501. All paths resolve relative to the project files. No API key, database, Kaggle login or paid service is needed to run the supplied snapshot. Dependencies for the retained Unit 1 notebooks are in `requirements-unit1.txt`; those optional profiling packages are not required by Unit 2.
+The app normally serves at http://localhost:8501. All paths resolve relative to the project files. No API key, database, Kaggle login or paid service is needed to run the supplied snapshot. The host installs only `requirements.txt`; use `requirements-unit2.txt` locally for analysis and tests. Dependencies for the retained Unit 1 notebooks are in `requirements-unit1.txt`; those optional profiling packages are not required by Unit 2.
 
 For the new notebooks, select this virtual environment as the notebook kernel and run `05_unit2_statistics.ipynb`, then `06_unit2_machine_learning.ipynb`. Both include saved execution outputs and start from the raw data. The model notebook takes longer because it repeats cross-validation, importance and bootstrap diagnostics.
 
@@ -72,6 +72,15 @@ Descriptive statistics and nonparametric comparisons suit this observational sna
 ## Model results and decision trade-off
 
 The reproducible seed-42 split uses 6,076 training, 2,025 validation and 2,026 test customers. Imputation/scaling fit only within training folds. Three-fold stratified training CV selects the model by mean average precision (AP). Validation chooses the threshold to maximise recall with an illustrative precision floor of 60%. No outreach costs are supplied, so this is not a profit-optimal rule. No test metric chooses the model or threshold.
+
+Training-only comparison (three stratified folds; SD describes variation across these folds):
+
+| Candidate | Mean CV average precision | CV AP standard deviation | Mean CV ROC AUC |
+|---|---:|---:|---:|
+| Logistic regression | 0.717 | 0.0183 | 0.920 |
+| Random forest | 0.914 | 0.0013 | 0.984 |
+
+Random forest was selected by CV average precision. This is the selection evidence; the following held-out test table evaluates the selected model after its threshold is fixed.
 
 | Internal test measure | Selected random forest | Majority baseline |
 |---|---:|---:|
@@ -132,7 +141,7 @@ python -m unittest discover -s tests -v
 python -m compileall -q src app.py run_analysis.py
 ```
 
-Twelve automated tests pass. Report checks reject inconsistent metrics, confusion counts and feature evidence; failure-path dashboard tests verify clear messages and continued descriptive access. Data tests cover rejection of corrupt input, row preservation, leakage exclusions, disjoint/stratified splits, Wilson intervals and multiple-test correction. Dashboard tests cover initial rendering, empty selections, reset, missing-data exclusion and narrow segments. Both new notebooks execute end to end. A fresh Windows Python 3.12 environment also passed the seven tests and dependency checks after a PyArrow compatibility pin. The [verification record](docs/VERIFICATION.md) records completed checks and limits.
+Thirteen automated tests pass. Report checks reject inconsistent metrics, confusion counts and feature evidence; failure-path dashboard tests verify clear messages and continued descriptive access. Data tests cover rejection of corrupt input, row preservation, leakage exclusions, disjoint/stratified splits, Wilson intervals and multiple-test correction. Dashboard tests cover initial rendering, empty selections, reset, missing-data exclusion and narrow segments. Both new notebooks execute end to end. A fresh Windows Python 3.12 environment also passed the seven tests and dependency checks after a PyArrow compatibility pin. The [verification record](docs/VERIFICATION.md) records completed checks and limits.
 
 ## Main libraries and structure
 
@@ -148,13 +157,14 @@ jupyter_notebooks/05-06*        Executed Unit 2 analysis
 inputs/datasets/raw/            Unmodified snapshot
 outputs/unit2/                 Cleaned data, metrics, splits and figures
 docs/                          Plan, criteria, reflection and delivery records
-requirements.txt               Unit 2 installation entry point
+requirements.txt               Lean hosted dashboard dependencies
+requirements-unit2.txt         Offline analysis and test dependencies
 requirements-unit1.txt         Optional legacy notebook environment
 ```
 
 ## Development roadmap and learning
 
-The implementation adds functional ETL, automated validation, training-only pipelines, uncertainty reporting and density visualisations. Technical changes and their rationale are recorded in [docs/LEARNING_REFLECTION.md](docs/LEARNING_REFLECTION.md). Personal learning claims must be completed by Asim after reviewing/running the work. Future priorities are dated external validation, subgroup evaluation, calibration and intervention-cost analysis.
+The implementation adds functional ETL, automated validation, training-only pipelines, uncertainty reporting and density visualisations. Technical changes and their rationale are recorded in [docs/LEARNING_REFLECTION.md](docs/LEARNING_REFLECTION.md). Asim's supplied first-person reflection is recorded; confirmation of his independent walkthrough remains outstanding. Future priorities are dated external validation, subgroup evaluation, calibration and intervention-cost analysis.
 
 ## Use of AI and other assistance
 

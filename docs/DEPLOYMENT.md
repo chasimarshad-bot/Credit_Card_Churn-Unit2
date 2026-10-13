@@ -10,7 +10,7 @@ Status: deployed. On 12 October 2026 the user supplied a screenshot showing the 
 - Branch: `main`
 - Entry point: `app.py`
 - Python: 3.12
-- Dependencies: root `requirements.txt`, which includes `requirements-unit2.txt`
+- Dependencies: root `requirements.txt` (dashboard runtime only; offline analysis uses `requirements-unit2.txt`)
 - Application secrets: none
 
 Generated reports are committed so the dashboard does not train a model at startup. Source updates pushed to the deployed branch are managed by Streamlit Community Cloud; inspect its logs if a later update fails.

@@ -40,4 +40,6 @@ For the current public educational application, maintain the pinned environment,
 
 For a real retention application, obtain dated features before a defined outcome horizon, independent temporal/external data, calibration and subgroup error evidence. Agree error/outreach costs and measure intervention benefit experimentally before using scores for customer decisions.
 
-For the assessment, the implementation and independent review provide technical evidence. Asim still needs to understand the work, provide an honest personal learning/reflection account and complete the LMS submission himself. This review cannot certify participation or guarantee a grade.
+For the assessment, the implementation and independent review provide technical evidence. Asim's personal reflection has since been received. Independent walkthrough confirmation and LMS submission remain outstanding. This review cannot certify participation or guarantee a grade.
+
+Follow-up: the [13 October readiness review](READINESS_REVIEW.md) records subsequent fixes, thirteen tests and dependency auditing.

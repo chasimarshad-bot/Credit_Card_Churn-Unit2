@@ -18,9 +18,15 @@ def load_model_reports(directory):
         counts = [result[key] for key in ['tn','fp','fn','tp']]
         if any(isinstance(value,bool) or not isinstance(value,int) or value < 0 for value in counts):
             raise ValueError('Invalid classification counts')
-        if not isinstance(report['split_sizes']['test'],int) or report['split_sizes']['test'] <= 0 or sum(counts) != report['split_sizes']['test']:
+        if isinstance(report['split_sizes']['test'],bool) or not isinstance(report['split_sizes']['test'],int) or report['split_sizes']['test'] <= 0 or sum(counts) != report['split_sizes']['test']:
             raise ValueError('Classification counts do not match the test population')
-        if not 0 <= report['dummy_test']['average_precision'] <= 1:
+        tn, fp, fn, tp = counts
+        precision = tp / (tp + fp) if tp + fp else 0.0
+        recall = tp / (tp + fn) if tp + fn else 0.0
+        if not math.isclose(result['precision'],precision,abs_tol=1e-12) or not math.isclose(result['recall'],recall,abs_tol=1e-12):
+            raise ValueError('Precision or recall disagrees with classification counts')
+        baseline = report['dummy_test']['average_precision']
+        if isinstance(baseline,bool) or not isinstance(baseline,(int,float)) or not math.isfinite(baseline) or not 0 <= baseline <= 1:
             raise ValueError('Invalid baseline metric')
     except (KeyError,TypeError) as error:
         raise ValueError('Incomplete model evidence') from error

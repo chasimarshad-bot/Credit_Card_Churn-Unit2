@@ -22,7 +22,7 @@ This is the actual implementation record, not a reconstructed daily history. The
 | Evaluate locked model on internal test | Confusion matrix, AP/ROC curves and baseline | Done |
 | Review contact timing sensitivity | Validation AP with/without contacts | Done |
 | Build interactive dashboard | Four tabs, segment filters and aggregate export | Done |
-| Test bad input and dashboard interactions | Seven passing automated tests | Done |
+| Test bad input and dashboard interactions | Thirteen passing automated tests | Done |
 | Execute and save both Unit 2 notebooks | All code cells have execution counts; no error outputs | Done |
 | Document limits, setup and assistance | README and supporting documentation | Done |
 | Publish separate repository | GitHub repository published under chasimarshad-bot | Done |

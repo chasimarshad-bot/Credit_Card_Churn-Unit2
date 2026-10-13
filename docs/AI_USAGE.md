@@ -16,3 +16,5 @@ Implementation instructions were structured around business purpose, required ou
 Checks performed: row counts and missingness, source digest, guardrails against corrupted inputs, disjoint split audit, full notebook execution, model baseline and timing sensitivity, dashboard empty/reset/small-segment interactions. Assistance still requires learner review: Asim should run and understand the project, check results and disclose support in the assessment form.
 
 Known risks: plausible but unsupported business claims, confusing classification with forecasting, p-value underflow and treating demographic exclusion as proof of fairness. The documentation addresses these explicitly. No private assessment feedback or credentials are included.
+
+Follow-up on 13 October 2026: Codex reviewed readiness, corrected filtered-view wording and saved-report checks, updated Streamlit/Pillow, separated hosted dependencies from offline analysis, and ran regression and advisory checks. Asim's supplied reflection is recorded; independent walkthrough confirmation remains outstanding.

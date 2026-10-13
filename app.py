@@ -75,7 +75,7 @@ with overview:
             fig = px.bar(counts,x='Status',y='Customers',color='Status',color_discrete_map=COLORS,
                          title='Customer outcomes in the selected segment',text='Customers')
             fig.update_layout(showlegend=False,xaxis_title=None)
-            st.plotly_chart(fig,use_container_width=True)
+            st.plotly_chart(fig,width='stretch')
         with right:
             rates = segment_summary(selected,'Total_Relationship_Count')
             rates['Attrition (%)'] = rates.churn_rate*100
@@ -84,14 +84,14 @@ with overview:
                          labels={'Total_Relationship_Count':'Products held'},color_discrete_sequence=['#0072B2'])
             fig.update_traces(error_y=dict(type='data',array=(rates.ci_upper-rates.churn_rate)*100,
                                            arrayminus=(rates.churn_rate-rates.ci_lower)*100))
-            st.plotly_chart(fig,use_container_width=True)
-        st.write('Smaller product portfolios show greater historical attrition. This association does not establish that adding a product will prevent departure.')
+            st.plotly_chart(fig,width='stretch')
+        st.write('In the full snapshot, smaller product portfolios show greater historical attrition; filtered segments can differ. This association does not establish that adding a product will prevent departure.')
         rates_display = rates[['Total_Relationship_Count','customers','churned']].rename(
             columns={'Total_Relationship_Count':'Products held','customers':'Customers','churned':'Attrited customers'})
         rates_display['Attrition (%)'] = (rates.churn_rate*100).round(2)
         rates_display['95% lower (%)'] = (rates.ci_lower*100).round(2)
         rates_display['95% upper (%)'] = (rates.ci_upper*100).round(2)
-        st.dataframe(rates_display,hide_index=True,use_container_width=True)
+        st.dataframe(rates_display,hide_index=True,width='stretch')
         # Export aggregates only; avoid offering individual customer records in the dashboard.
         st.download_button('Download segment summary (CSV)',rates_display.to_csv(index=False),
                             file_name='segment_summary.csv',mime='text/csv')
@@ -104,32 +104,32 @@ with activity:
                            barmode='overlay',opacity=0.65,nbins=30,color_discrete_map=COLORS,
                            labels={'Total_Trans_Ct':'Annual transaction count','Attrition_Flag':'Recorded status'},
                            title='Transaction frequency, normalised within each status')
-        st.plotly_chart(fig,use_container_width=True)
+        st.plotly_chart(fig,width='stretch')
         st.caption('Each status distribution totals 100%; this compares distribution shapes rather than class sizes.')
         with st.expander('Transaction frequency data table'):
             frequency = selected.groupby(['Attrition_Flag','Total_Trans_Ct']).size().reset_index(name='Customers')
             frequency['Share of status group (%)'] = frequency.Customers / frequency.groupby('Attrition_Flag').Customers.transform('sum') * 100
-            st.dataframe(frequency.rename(columns={'Attrition_Flag':'Recorded status','Total_Trans_Ct':'Annual transactions'}),hide_index=True,use_container_width=True)
+            st.dataframe(frequency.rename(columns={'Attrition_Flag':'Recorded status','Total_Trans_Ct':'Annual transactions'}),hide_index=True,width='stretch')
 
         chart_data = selected.assign(Status=selected.Attrition_Flag)
         fig = px.density_heatmap(chart_data,x='Total_Trans_Ct',y='Total_Revolving_Bal',facet_col='Status',
                                 nbinsx=25,nbinsy=20,color_continuous_scale='Blues',
                                 labels={'Total_Trans_Ct':'Annual transaction count','Total_Revolving_Bal':'Revolving balance ($)'},
                                 title='Where customers concentrate: activity and balance')
-        st.plotly_chart(fig,use_container_width=True)
+        st.plotly_chart(fig,width='stretch')
         st.caption('Bin colours show customer counts, not churn rates. The retained class is much larger; compare locations within each panel.')
         contact = segment_summary(selected,'Contacts_Count_12_mon')
         contact['Attrition (%)'] = contact.churn_rate*100
         fig = px.line(contact,x='Contacts_Count_12_mon',y='Attrition (%)',markers=True,
                       hover_data=['customers'],title='Contact frequency and recorded attrition',
                       labels={'Contacts_Count_12_mon':'Annual contacts'},color_discrete_sequence=['#D55E00'])
-        st.plotly_chart(fig,use_container_width=True)
+        st.plotly_chart(fig,width='stretch')
         with st.expander('Contact frequency data table'):
             contact_table = contact.rename(columns={'Contacts_Count_12_mon':'Annual contacts','customers':'Customers',
                                                    'churned':'Attrited customers','ci_lower':'95% lower (%)','ci_upper':'95% upper (%)'})
             contact_table[['95% lower (%)','95% upper (%)']] *= 100
-            st.dataframe(contact_table.drop(columns='churn_rate').round(2),hide_index=True,use_container_width=True)
-        st.write('Repeated contact and low activity accompany attrition. Contacts may include closure administration; there is no timestamp to establish which happened first.')
+            st.dataframe(contact_table.drop(columns='churn_rate').round(2),hide_index=True,width='stretch')
+        st.write('The full snapshot shows associations between contact, activity and attrition; filtered segments can differ. Contacts may include closure administration; there is no timestamp to establish which happened first.')
 with model_tab:
     st.subheader('Can account activity distinguish the recorded outcomes?')
     report_path = OUTPUT/'model_results.json'
@@ -154,10 +154,10 @@ with model_tab:
                                   y=['Actually retained','Actually attrited'],text=matrix,texttemplate='%{text}',
                                   colorscale='Blues',showscale=False))
         fig.update_layout(title='Classification outcomes on the internal test split',height=350)
-        st.plotly_chart(fig,use_container_width=True)
+        st.plotly_chart(fig,width='stretch')
         with st.expander('Classification outcomes data table'):
             st.dataframe(pd.DataFrame(matrix,index=['Actually retained','Actually attrited'],
-                                      columns=['Predicted retained','Predicted attrited']),use_container_width=True)
+                                      columns=['Predicted retained','Predicted attrited']),width='stretch')
         st.write(f"The prototype missed {result['fn']} attrited customers and flagged {result['fp']} retained customers. A bank would need to agree the costs of these errors before choosing a production threshold.")
         feature_labels = {
             'Total_Relationship_Count':'Products held','Months_Inactive_12_mon':'Inactive months',
@@ -168,10 +168,10 @@ with model_tab:
         importance['feature'] = importance.feature.map(feature_labels).fillna(importance.feature)
         st.plotly_chart(px.bar(importance.sort_values('ap_decrease'),x='ap_decrease',y='feature',orientation='h',
                               labels={'ap_decrease':'Drop in validation average precision','feature':'Activity measure'},
-                              title='Which features does the model rely on?'),use_container_width=True)
+                              title='Which features does the model rely on?'),width='stretch')
         with st.expander('Feature reliance data table'):
             st.dataframe(importance.rename(columns={'feature':'Activity measure','ap_decrease':'Average precision decrease',
-                                                   'sd':'Variation across permutations'}),hide_index=True,use_container_width=True)
+                                                   'sd':'Variation across permutations'}),hide_index=True,width='stretch')
         st.caption('Permutation importance measures reliance, not causation. Correlated features can share importance.')
         st.warning('This is an internal snapshot classification experiment. Unit 1 explored this dataset already. Independent, dated customer data is needed before claiming future churn prediction or deploying customer decisions.')
 with about:
