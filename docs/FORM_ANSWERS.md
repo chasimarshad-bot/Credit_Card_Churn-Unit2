@@ -4,7 +4,7 @@ The supplied [submission form](https://docs.google.com/forms/d/e/1FAIpQLSecz4Rkl
 
 Use Asim's registered LMS login email, not his Code Institute student email. Do not put that personal email in this public repository.
 
-- Full name: Muhammad Asim
+- Full name: Muhammad Asim Arshad
 - Project name: Credit Card Retention Insights
 - GitHub URL: https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2
 
