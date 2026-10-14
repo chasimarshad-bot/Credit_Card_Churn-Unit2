@@ -5,7 +5,7 @@
 - Repository: https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2
 - Dashboard: https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/
 - Project board: https://github.com/users/chasimarshad-bot/projects/3
-- Updated source and full Unit 2 history: https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2/releases/tag/v1.0.0-rc6
+- Updated source and full Unit 2 history: https://github.com/chasimarshad-bot/Credit_Card_Churn-Unit2/releases/tag/v1.0.0-rc7
 
 ## Suggested project description
 

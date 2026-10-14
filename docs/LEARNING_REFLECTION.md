@@ -1,6 +1,6 @@
 # Development reflection and learner review
 
-The completed [independent technical review](TECHNICAL_REVIEW.md) assesses the implementation for Asim. It is separate from his personal reflection.
+This document contains the technical development account and Asim's supplied personal reflection. The optional [technical quality review](TECHNICAL_REVIEW.md) separately records implementation checks.
 
 ## Technical changes evidenced in this implementation
 

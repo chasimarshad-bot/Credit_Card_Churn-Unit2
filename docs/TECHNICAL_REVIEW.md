@@ -1,3 +1,5 @@
+> Optional technical quality check, not an external assessor endorsement or a separate assessment requirement. This review does not establish originality or replace accurate attribution.
+
 # Independent technical review for Muhammad Asim
 
 Reviewer: OpenAI Codex, with Sanif coordinating the work. Date: 12 October 2026.

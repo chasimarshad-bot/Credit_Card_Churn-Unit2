@@ -8,7 +8,7 @@ This project extends [the Unit 1 submission](https://github.com/chasimarshad-bot
 
 ## Review and submission
 
-Read the [latest readiness review](docs/READINESS_REVIEW.md) and [independent technical review](docs/TECHNICAL_REVIEW.md), then start with the [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The deployed technical project is complete. The source remains a review candidate until learner review is complete. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
+Start with the [assessment evidence map](docs/ASSESSMENT_MAP.md), [personal reflection](docs/LEARNING_REFLECTION.md), [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The [readiness review](docs/READINESS_REVIEW.md) and [technical quality review](docs/TECHNICAL_REVIEW.md) provide optional supporting checks. The deployed technical project is complete. The source remains a review candidate until learner review is complete. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
 
 ## Run locally
 
