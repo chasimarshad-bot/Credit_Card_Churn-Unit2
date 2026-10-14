@@ -1,6 +1,6 @@
 # Credit Card Churn: Activity, Evidence and Classification
 
-Unit 2 Data Analytics with AI project for Muhammad Asim (`chasimarshad-bot`).
+Unit 2 Data Analytics with AI project for Muhammad Asim Arshad (`chasimarshad-bot`).
 
 A historical analysis of 10,127 credit card customer records, with statistical tests, a classification prototype and an interactive Streamlit dashboard for a retention analyst. **1,627 customers (16.07%) are recorded as attrited.** Activity measures distinguish the recorded groups, but the dataset has no dates to establish advance warning or intervention effectiveness.
 
