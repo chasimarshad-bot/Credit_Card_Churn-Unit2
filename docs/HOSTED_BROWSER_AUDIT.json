@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-14",
+  "method": "Playwright headless Microsoft Edge against hosted Streamlit iframe",
+  "checks_passed": [
+    "Overview: 10,127 customers",
+    "Aggregate CSV download: totals 10,127 customers",
+    "Empty selection message",
+    "Platinum filter: 20 customers and warning",
+    "Filtered model results retain AP 0.922",
+    "Reset restores full population",
+    "Missing-demographic exclusion reduces population",
+    "Activity & relationships renders",
+    "Model review renders",
+    "About the data renders"
+  ],
+  "learner_walkthrough_confirmed": false
+}

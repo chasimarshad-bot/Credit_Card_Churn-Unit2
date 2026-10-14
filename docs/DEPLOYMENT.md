@@ -24,3 +24,9 @@ Render was an alternative considered before Streamlit Community Cloud deployment
 After a code or dependency update, check all four tabs, change a filter and reset it, inspect a small Platinum-only segment and download the aggregate summary. Model review should show average precision 0.922 for the fixed test set. These checks do not replace a formal accessibility audit.
 
 Official guide: [Streamlit Community Cloud deployment](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy).
+
+## Hosted browser verification - 14 October 2026
+
+The app was sleeping from inactivity. Its public wake-up button was used and startup completed. Playwright with headless Microsoft Edge then checked the actual hosted Streamlit iframe: all four tabs, the 10,127-customer overview, downloadable aggregate CSV totals, empty selections, Platinum-only 20-customer warning, reset, missing-demographic exclusion and fixed model AP 0.922 under filtering. All checks passed. The [browser audit](HOSTED_BROWSER_AUDIT.json) records the checks; this supersedes the earlier pending post-update smoke check. This browser verification is not evidence of Asim's independent walkthrough or LMS submission.
+
+Streamlit may sleep again after inactivity. If the assessor sees the sleep screen, select "Yes, get this app back up!" and allow startup to finish.

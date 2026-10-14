@@ -8,7 +8,7 @@ This project extends [the Unit 1 submission](https://github.com/chasimarshad-bot
 
 ## Review and submission
 
-Start with the [assessment evidence map](docs/ASSESSMENT_MAP.md), [personal reflection](docs/LEARNING_REFLECTION.md), [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The [readiness review](docs/READINESS_REVIEW.md) and [technical quality review](docs/TECHNICAL_REVIEW.md) provide optional supporting checks. The deployed technical project is complete. The source remains a review candidate until learner review is complete. The candidate Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
+Start with the [assessment evidence map](docs/ASSESSMENT_MAP.md), [personal reflection](docs/LEARNING_REFLECTION.md), [submission checklist](docs/SUBMISSION_CHECKLIST.md) and [project walkthrough](docs/WALKTHROUGH.md). The [readiness review](docs/READINESS_REVIEW.md) and [technical quality review](docs/TECHNICAL_REVIEW.md) provide optional supporting checks. The deployed technical project is complete. Asim's walkthrough and reflection were confirmed complete on 14 October 2026; final assessment submission remains outstanding. The release Git bundle preserves the complete Unit 2 commit history; the linked source repositories retain the original Unit 1 history.
 
 ## Run locally
 
@@ -110,7 +110,9 @@ Card category, product count and transaction-range filters apply only to descrip
 
 Expandable data tables provide transaction frequencies, contact rates, classification outcomes and feature reliance without relying on chart colour or hover. Feature names use plain-language labels.
 
-The hosted overview was visually checked from the supplied screenshot, and the user confirmed the dashboard works. Formal accessibility auditing has not been completed; automated interaction tests do not establish every assistive-technology behaviour.
+The hosted overview was visually checked from the supplied screenshot. On 14 October 2026, actual hosted browser checks passed for all tabs, filtering, reset, empty/small segments and aggregate CSV download; see the [browser audit](docs/HOSTED_BROWSER_AUDIT.json). Formal accessibility auditing has not been completed; automated interaction tests do not establish every assistive-technology behaviour.
+
+![Hosted dashboard overview](outputs/unit2/dashboard_hosted.png)
 
 ## Conclusions and recommendations
 
@@ -125,7 +127,7 @@ Investigate activity-led retention with human review. Obtain dated features befo
 - Sampling representativeness, data-generation process and future drift are unknown.
 - Excluding demographics does not remove behavioural proxies or establish fairness.
 - Small segments have wide intervals; default dashboard exports contain aggregates only.
-- Asim's personal reflection has been received; the independent walkthrough and final LMS submission remain learner tasks.
+- Asim's personal reflection and walkthrough are confirmed complete; final assessment submission remains outstanding.
 - No known application logic defect remains from the completed automated checks. Missing or invalid source data receives a clear message; unavailable model evidence leaves descriptive exploration usable. Hosted rendering and operation are supported by the user screenshot and confirmation; formal accessibility review remains a future improvement.
 
 ## Deployment
@@ -164,7 +166,7 @@ requirements-unit1.txt         Optional legacy notebook environment
 
 ## Development roadmap and learning
 
-The implementation adds functional ETL, automated validation, training-only pipelines, uncertainty reporting and density visualisations. Technical changes and their rationale are recorded in [docs/LEARNING_REFLECTION.md](docs/LEARNING_REFLECTION.md). Asim's supplied first-person reflection is recorded; confirmation of his independent walkthrough remains outstanding. Future priorities are dated external validation, subgroup evaluation, calibration and intervention-cost analysis.
+The implementation adds functional ETL, automated validation, training-only pipelines, uncertainty reporting and density visualisations. Technical changes and their rationale are recorded in [docs/LEARNING_REFLECTION.md](docs/LEARNING_REFLECTION.md). Asim's supplied first-person reflection is recorded; his independent walkthrough was confirmed complete on 14 October 2026. Future priorities are dated external validation, subgroup evaluation, calibration and intervention-cost analysis.
 
 ## Use of AI and other assistance
 

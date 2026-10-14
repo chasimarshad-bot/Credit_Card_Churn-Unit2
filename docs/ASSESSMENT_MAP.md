@@ -13,8 +13,8 @@ This map uses the supplied Unit 2 handbook/checklist. It is an evidence index, n
 | 3.2 Assess effectiveness and alternatives | Baseline, errors, sensitivity, bootstrap limits and recommendations | Implemented |
 | 3.3 Present structured plan | Notebook 05 and `PROJECT_PLAN.md` task board | Implemented |
 | 4.1 Integrate analytics tools | pandas/scipy/scikit-learn notebooks and Plotly/Streamlit app | Deployed; user screenshot and working-dashboard confirmation received |
-| 4.2 Evaluate learning/adaptation | Technical development account and Asim's supplied personal reflection | Reflection received; independent walkthrough awaiting confirmation |
+| 4.2 Evaluate learning/adaptation | Technical development account and Asim's supplied personal reflection | Reflection and walkthrough confirmed complete on 14 October 2026 |
 
 At least two plot types: rate bars, histograms, density/hexbin, ROC/precision-recall and confusion matrix. Each has a stated business/diagnostic purpose. README records requirements, results, limitations, source attribution and assistance.
 
-Remaining submission work: confirmation of Asim's independent walkthrough and final LMS submission. Formal accessibility auditing is documented as a limitation, rather than claimed complete. No personal assessment email or meeting transcript is committed.
+Remaining submission work: confirmation of the correct assessment form and final submission. Formal accessibility auditing is documented as a limitation, rather than claimed complete. No personal assessment email or meeting transcript is committed.

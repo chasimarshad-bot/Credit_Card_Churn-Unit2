@@ -50,3 +50,11 @@ A fresh Windows Python 3.12 runtime-only environment installed root requirements
 ## Final submission check - 14 October 2026
 
 All thirteen tests, dependency consistency and technical submission audit passed again. GitHub repository visibility is public and its default branch is main. Assessment evidence and the supplied personal reflection are the first README review links. The technical quality review is explicitly optional and does not replace attribution or provide an assessor endorsement. Learner walkthrough confirmation, hosted post-update smoke check and LMS submission remain unconfirmed.
+
+## Hosted browser verification - 14 October 2026
+
+The app was sleeping from inactivity. Its public wake-up button was used and startup completed. Playwright with headless Microsoft Edge then checked the actual hosted Streamlit iframe: all four tabs, the 10,127-customer overview, downloadable aggregate CSV totals, empty selections, Platinum-only 20-customer warning, reset, missing-demographic exclusion and fixed model AP 0.922 under filtering. All checks passed. The [browser audit](HOSTED_BROWSER_AUDIT.json) records the checks; this supersedes the earlier pending post-update smoke check. This browser verification is not evidence of Asim's independent walkthrough or LMS submission.
+
+Streamlit may sleep again after inactivity. If the assessor sees the sleep screen, select "Yes, get this app back up!" and allow startup to finish.
+
+Learner confirmation update, 14 October 2026: the user confirmed that Asim completed both his independent walkthrough and final reflection answers. Hosted browser checks passed and learner review is now complete. The supplied form was inspected; its unit description needs confirmation before actual submission. No assessment submission has been made.

@@ -27,7 +27,8 @@ This is the actual implementation record, not a reconstructed daily history. The
 | Document limits, setup and assistance | README and supporting documentation | Done |
 | Publish separate repository | GitHub repository published under chasimarshad-bot | Done |
 | Deploy and check hosted Streamlit app | Streamlit Community Cloud URL, user screenshot and confirmation | Done |
-| Review personal learning and submission | Asim's own reflection and walkthrough | Reflection received; walkthrough pending |
+| Review personal learning and submission | Asim's own reflection and walkthrough | Done; user confirmation received 14 October 2026 |
+| Submit assessment and retain confirmation | Correct form, registered LMS email and submission receipt | Pending actual submission |
 
 ## MoSCoW
 
@@ -43,4 +44,4 @@ This is the actual implementation record, not a reconstructed daily history. The
 
 The supplied meeting notes repeatedly state 14 October 2026 at 17:00, but also contain one mention of 15 October. Treat 14 October as the conservative planning date and confirm the official deadline in the LMS. No submission has been made by this implementation.
 
-Deployment is complete, supported by the user screenshot and confirmation. Asim's personal reflection has been received. Confirmation of his independent walkthrough remains outstanding before submission. The supplied handbook is the assessment reference; the meeting notes and templates provide supporting guidance.
+Deployment is complete, supported by the user screenshot and confirmation. Asim's personal reflection has been received. His independent walkthrough was confirmed complete on 14 October 2026. The supplied handbook is the assessment reference; the meeting notes and templates provide supporting guidance.

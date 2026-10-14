@@ -1,8 +1,12 @@
 {
   "live_dashboard_url": "https://creditcardchurn-unit2-iaagzfaqp5pcffhj3yicmh.streamlit.app/",
   "hosted_app_verified": true,
-  "learner_review_complete": false,
-  "hosted_verification_evidence": "User supplied a screenshot of the rendered overview and subsequently confirmed that the dashboard works on 12 October 2026.",
+  "learner_review_complete": true,
+  "hosted_verification_evidence": "Initial screenshot/user confirmation on 12 October 2026; actual hosted Playwright/Edge browser checks passed on 14 October 2026. See docs/HOSTED_BROWSER_AUDIT.json.",
   "personal_reflection_received": true,
-  "personal_reflection_evidence": "Asim's reflection supplied by the user on 12 October 2026 and recorded in docs/LEARNING_REFLECTION.md. Independent walkthrough confirmation remains outstanding."
+  "personal_reflection_evidence": "Asim's reflection supplied by the user on 12 October 2026 and recorded in docs/LEARNING_REFLECTION.md. Independent walkthrough confirmation remains outstanding.",
+  "hosted_post_update_smoke_verified": true,
+  "learner_review_evidence": "User confirmed on 14 October 2026 that Asim completed both his independent walkthrough and final reflection answers.",
+  "assessment_submitted": false,
+  "submission_form_verified_for_unit2": false
 }

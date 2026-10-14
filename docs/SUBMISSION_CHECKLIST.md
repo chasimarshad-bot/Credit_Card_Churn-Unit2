@@ -25,7 +25,7 @@ See the [submission handover](SUBMISSION_HANDOVER.md) for ready-to-copy links an
 - [x] Hosted dashboard deployment, screenshot review and user confirmation.
 - Formal accessibility auditing remains a documented limitation.
 - [x] Asim's personal learning/AI reflection received and recorded.
-- [ ] Asim's independent project walkthrough.
+- [x] Asim's independent project walkthrough confirmed by the user on 14 October 2026.
 - [ ] Confirm the official deadline and submission fields in the LMS.
 - [ ] Submit the source and live dashboard links using Asim's registered email.
 
@@ -43,7 +43,7 @@ python -m streamlit run app.py
 
 The audit verifies raw/export consistency, splits and metrics, saved hypotheses, notebook execution, documentation links and Git attribution. It lists the remaining learner review rather than silently treating it as complete. `--require-submission-ready` returns a failing exit status until learner review is complete.
 
-Update `submission_status.json` only after the matching evidence exists. Add the verified live URL to the README and deployment guide. Asim's supplied reflection is recorded in LEARNING_REFLECTION.md; confirm the independent walkthrough and review assistance credits and the assessment form together.
+Update `submission_status.json` only after the matching evidence exists. Add the verified live URL to the README and deployment guide. Asim's supplied reflection is recorded in LEARNING_REFLECTION.md; review assistance credits and the assessment form together.
 
 ## Commit history and release copies
 
@@ -52,8 +52,8 @@ The initial commit imports the existing Unit 1 snapshot and credits its sources.
 A release candidate contains a source ZIP and a Git bundle. The ZIP is convenient for review; **GitHub's source ZIP alone does not contain commit history**. Use the `.bundle` to keep the full Unit 2 history offline:
 
 ```powershell
-git bundle verify Credit_Card_Churn-Unit2-v1.0.0-rc7.bundle
-git clone Credit_Card_Churn-Unit2-v1.0.0-rc7.bundle Credit_Card_Churn-Unit2-review
+git bundle verify Credit_Card_Churn-Unit2-v1.0.0.bundle
+git clone Credit_Card_Churn-Unit2-v1.0.0.bundle Credit_Card_Churn-Unit2-review
 ```
 
-The technical project is deployed; the release remains a candidate until learner review is complete. No assessment submission has been made on Asim's behalf.
+The technical project is deployed and learner review is confirmed complete. No assessment submission has been made on Asim's behalf.

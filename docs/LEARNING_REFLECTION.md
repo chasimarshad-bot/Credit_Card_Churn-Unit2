@@ -34,6 +34,6 @@ AI and mentor guidance helped me understand the technical parts of the project, 
 
 If I were to improve the project, I would use more recent customer data and include information about when customers actually left. I think this would help us understand churn better and potentially identify customers at risk before they leave.
 
-## Remaining walkthrough
+## Walkthrough confirmation
 
-The reflection has been received. An independent walkthrough has not yet been confirmed. Use the [walkthrough guide](WALKTHROUGH.md) to demonstrate filtering, explain the training/validation/test partitions and threshold choice, and describe the limits of predictions from a historical snapshot.
+The reflection has been received. The user confirmed on 14 October 2026 that Asim completed his independent walkthrough. Use the [walkthrough guide](WALKTHROUGH.md) to demonstrate filtering, explain the training/validation/test partitions and threshold choice, and describe the limits of predictions from a historical snapshot.

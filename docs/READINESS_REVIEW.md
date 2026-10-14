@@ -30,3 +30,9 @@ The criterion map links statistical explanation/application, three exploratory h
 After the updated branch rebuilds, open all four tabs; change and reset filters; select Platinum for the small-sample warning; download the aggregate summary; check the fixed model review still shows AP 0.922. The previous screenshot confirms the earlier hosted version, not this dependency update. Use the host logs if rebuilding fails.
 
 A fresh Windows Python 3.12 runtime-only environment installed root requirements successfully, passed all three dashboard interaction/failure-path tests and passed pip check on 13 October 2026. It contains no scikit-learn or notebook execution tools. Linux hosted rebuild and browser smoke checks remain unverified for this update.
+
+## Hosted browser verification - 14 October 2026
+
+The app was sleeping from inactivity. Its public wake-up button was used and startup completed. Playwright with headless Microsoft Edge then checked the actual hosted Streamlit iframe: all four tabs, the 10,127-customer overview, downloadable aggregate CSV totals, empty selections, Platinum-only 20-customer warning, reset, missing-demographic exclusion and fixed model AP 0.922 under filtering. All checks passed. The [browser audit](HOSTED_BROWSER_AUDIT.json) records the checks; this supersedes the earlier pending post-update smoke check. This browser verification is not evidence of Asim's independent walkthrough or LMS submission.
+
+Streamlit may sleep again after inactivity. If the assessor sees the sleep screen, select "Yes, get this app back up!" and allow startup to finish.
